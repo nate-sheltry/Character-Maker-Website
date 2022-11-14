@@ -1,0 +1,141 @@
+/*Colors to use
+New Vegas Orange/Amber = fec726
+FO4 Green = 12ff17
+FO 3 Blue = 8EFBBA
+
+*/
+
+:root {
+    --special-image: url("../images/male/amber/special-hover-name.png");
+    --special-right-img: url("../images/right-arrow-orange-btn.png");
+    --special-left-img: url("../images/left-arrow-orange-btn.png");
+    --special-stat: "5";
+    --special-points: "5";
+    --hover-color: #fec726;
+    --special-color: #fec726;
+
+
+}
+
+#special_box {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    width: 700px;
+    padding: 1em;
+}
+#background_color {
+    background-color: black;
+    z-index: -1;
+    grid-column: 1/3;
+    grid-row: 1/4;
+    opacity: .3;
+    margin: -1em;
+}
+#name_header {
+    grid-column: 1;
+    grid-row: 1;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    font-size: 22px;
+}
+#name_box {
+    outline: none;
+    border: none;
+    font-size: 22px;
+    text-align: right;
+    background: none;
+    margin-left: -60px;
+    margin-right: .2em;
+}
+#special_wrapper {
+    grid-column: 1;
+    grid-row: 2;
+    display: grid;
+}
+.special-hoverable {
+    display: grid;
+    grid-template-columns: 3.2fr .2fr .4fr .2fr;
+    grid-template-rows: 1;
+    font-family: Calibri;
+    font-size: 24px;
+    padding-top: .2em;
+    padding-bottom: .2em;
+    color: var(--hover-color);
+}
+.special-hoverable:hover {
+    background-color: var(--hover-color);
+    opacity: .9;
+    color: black;
+}
+.special-hoverable:hover .special-value {
+    color: black;
+}
+.special-hoverable:hover .special-button-subtract {
+    background-image: url("../images/left-arrow-btn-hover.png");
+}
+.special-hoverable:hover .special-button-add {
+    background-image: url("../images/right-arrow-btn-hover.png");
+}
+.special-button-subtract {
+    background-image: var(--special-left-img);
+    background-size: cover;
+    margin-top: 6px;
+    height: 17px;
+    width: 10px;
+    justify-self:end;
+}
+.special-button-add {
+    background-image: var(--special-right-img);
+    background-size: cover;
+    margin-top: 6px;
+    height: 17px;
+    width: 10px;
+    justify-self:start;
+}
+.special-value {
+    font-family: Calibri;
+    display: flex;
+    justify-content: center;
+    color: var(--special-color);
+}
+#points_box {
+    grid-column: 1;
+    grid-row: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+#points_value {
+    font-family: Calibri;
+    display: flex;
+    justify-content: center;
+    font-size: 48px;
+    font-weight: bold;
+}
+#points_label{
+    font-family: 'Times New Roman', Times, serif;
+    display: flex;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: 900px;
+    margin-top: -.5em;
+}
+#description_box {
+    grid-column: 2;
+    grid-row: 1/4;
+    display: flex;
+    flex-direction: column;
+}
+#gender_div {
+    align-self: center;
+    margin-bottom: .2em;
+    padding: .2em;
+}
+#img_wrapper {
+    background-image: var(--special-image);
+    height: 170px;
+    width: 170px;
+    display: flex;
+    align-self: center;
+    grid-row: 2;
+}

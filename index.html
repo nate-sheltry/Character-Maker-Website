@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fallout Character Maker</title>
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <!-- <script nomodule defer type="text/javascript" src="scripts/legacyScript.js"></script> -->
+    <script type='module' defer src="scripts/script.js"></script>
+</head>
+<body>
+    <div id="special_box">
+        <div id="background_color"></div>
+        <div id="name_header">
+            <div id="name_tittle">Name:</div>
+            <input type="text" id="name_box" placeholder="NONE">
+        </div>
+        <div id="special_wrapper">
+            <div class="special-hoverable special-attribute" data-reference="Strength">
+                <div class="special-label">Strength</div>
+                <div class="special-button-subtract" data-special="S"></div>
+                <div class="special-value">5</div>
+                <div class="special-button-add" data-special="S"></div>
+            </div>
+            <div class="special-hoverable special-attribute" data-reference="Perception">
+                <div class="special-label">Perception</div>
+                <div class="special-button-subtract" data-special="P"></div>
+                <div class="special-value">5</div>
+                <div class="special-button-add" data-special="P"></div>
+            </div>
+            <div class="special-hoverable special-attribute" data-reference="Endurance">
+                <div class="special-label">Endurance</div>
+                <div class="special-button-subtract" data-special="E"></div>
+                <div class="special-value">5</div>
+                <div class="special-button-add" data-special="E"></div>
+            </div>
+            <div class="special-hoverable special-attribute" data-reference="Charisma">
+                <div class="special-label">Charisma</div>
+                <div class="special-button-subtract" data-special="C"></div>
+                <div class="special-value">5</div>
+                <div class="special-button-add" data-special="C"></div>
+            </div>
+            <div class="special-hoverable special-attribute" data-reference="Intelligence">
+                <div class="special-label">Intelligence</div>
+                <div class="special-button-subtract" data-special="I"></div>
+                <div class="special-value">5</div>
+                <div class="special-button-add" data-special="I"></div>
+            </div>
+            <div class="special-hoverable special-attribute" data-reference="Agility">
+                <div class="special-label">Agility</div>
+                <div class="special-button-subtract" data-special="A"></div>
+                <div class="special-value">5</div>
+                <div class="special-button-add" data-special="A"></div>
+            </div>
+            <div class="special-hoverable special-attribute" data-reference="Luck">
+                <div class="special-label">Luck</div>
+                <div class="special-button-subtract" data-special="L"></div>
+                <div class="special-value">5</div>
+                <div class="special-button-add" data-special="L"></div>
+            </div>
+        </div>
+        <div id="points_box">
+            <div id="points_value">5</div>
+            <div id="points_label">Points Available</div>
+            <div id="view_perks"></div>
+        </div>
+        
+        <div id="description_box">
+            <div id="gender_div"><button id="male">Male</button><button id="female">Female</button></div>
+            <div id="img_wrapper"></div>
+            <div id="description">description</div>
+        </div>
+    </div>
+</body>
+</html>
