@@ -39,10 +39,8 @@ export function handleAddSpecial(e){
     if(!e.target.classList.contains(addSpecialButton)){
         return
     }
-    e.target.style.marginRight = "3px";
-    e.target.style.marginLeft = "7px";
-    e.target.style.marginTop = "7px";
-    e.target.style.marginBottom = "3px";
+    e.target.style.marginRight = "-2px"; e.target.style.marginLeft = "12px";
+    e.target.style.marginTop = "7px"; e.target.style.marginBottom = "3px";
     let textObject = e.target.parentElement.querySelector(".special-value");
     switch(e.target.dataset.special){
         case "S":
@@ -75,7 +73,8 @@ export function handleAddSpecial(e){
             displaySpecial(textObject, SPECIAL.L); break;
     }
     setTimeout(function(){
-    e.target.style.margin = "5px";
+    e.target.style.margin = "5px";e.target.style.marginRight = "0px";
+    e.target.style.marginLeft = "10px";
     }, 50);
 }
 
@@ -83,10 +82,8 @@ export function handleSubSpecial(e){
     if(!e.target.classList.contains(subSpecialButton)){
         return;
     }
-    e.target.style.marginRight = "7px";
-    e.target.style.marginLeft = "3px";
-    e.target.style.marginTop = "7px";
-    e.target.style.marginBottom = "3px";
+    e.target.style.marginRight = "2px"; e.target.style.marginLeft = "8px";
+    e.target.style.marginTop = "7px"; e.target.style.marginBottom = "3px";
     let textObject = e.target.parentElement.querySelector(".special-value");
     switch(e.target.dataset.special){
         case "S":
@@ -119,6 +116,7 @@ export function handleSubSpecial(e){
             displaySpecial(textObject, SPECIAL.L); break;
     }
     setTimeout(function(){
-        e.target.style.margin = "5px";
+        e.target.style.margin = "5px";e.target.style.marginRight = "0px";
+        e.target.style.marginLeft = "10px";
     }, 50);
 }
