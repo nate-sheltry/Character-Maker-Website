@@ -37,6 +37,7 @@ FO 3 Blue = 8EFBBA
     display: grid;
     grid-template-columns: 1fr 2fr;
     font-size: 22px;
+    padding: 5px;
 }
 #name_box {
     outline: none;
@@ -58,8 +59,9 @@ FO 3 Blue = 8EFBBA
     grid-template-rows: 1;
     font-family: Calibri;
     font-size: 24px;
-    padding-top: .2em;
-    padding-bottom: .2em;
+    padding-top: .5em;
+    padding: 5px;
+    padding-bottom: .5em;
     color: var(--hover-color);
 }
 .special-hoverable:hover {
@@ -78,24 +80,27 @@ FO 3 Blue = 8EFBBA
 }
 .special-button-subtract {
     background-image: var(--special-left-img);
-    background-size: cover;
-    margin-top: 6px;
-    height: 17px;
+    background-size: end;
+    background-repeat:no-repeat;
+    height: 20px;
     width: 10px;
+    margin: 5px;
     justify-self:end;
 }
 .special-button-add {
     background-image: var(--special-right-img);
-    background-size: cover;
-    margin-top: 6px;
-    height: 17px;
+    background-size: end;
+    background-repeat:no-repeat;
+    height: 20px;
     width: 10px;
+    margin: 5px;
     justify-self:start;
 }
 .special-value {
     font-family: Calibri;
     display: flex;
     justify-content: center;
+    margin-top: -1px;
     color: var(--special-color);
 }
 #points_box {
