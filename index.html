@@ -7,70 +7,258 @@
     <title>Fallout Character Maker</title>
     <link rel="stylesheet" type="text/css" href="styles/style.css">
     <!-- <script nomodule defer type="text/javascript" src="scripts/legacyScript.js"></script> -->
-    <script type='module' defer src="scripts/script.js"></script>
+    <script type="module" src="scripts/script.js" defer></script>
 </head>
 <body>
-    <div id="special_box">
-        <div id="background_color"></div>
+<div id="program_box">
+    <div id="faserip_box">
+        <div id="faserip_background_color"></div>
         <div id="name_header">
             <div id="name_tittle">Name:</div>
             <input type="text" id="name_box" placeholder="NONE">
         </div>
-        <div id="special_wrapper">
-            <div class="special-hoverable special-attribute" data-reference="Strength">
-                <div class="special-label">Strength</div>
-                <div class="special-button-subtract" data-special="S"></div>
-                <div class="special-value">5</div>
-                <div class="special-button-add" data-special="S"></div>
+        <div id="faserip_wrapper">
+            <div class="faserip-hoverable faserip-attribute" data-reference="Fighting">
+                <div class="faserip-label">Fighting</div>
+                <div class="faserip-rank">Typical</div>
+                <div class="faserip-rank2">(TY)</div>
+                <div class="faserip-button-subtract" data-faserip="F"></div>
+                <div class="faserip-value">5</div>
+                <div class="faserip-button-add" data-faserip="F"></div>
             </div>
-            <div class="special-hoverable special-attribute" data-reference="Perception">
-                <div class="special-label">Perception</div>
-                <div class="special-button-subtract" data-special="P"></div>
-                <div class="special-value">5</div>
-                <div class="special-button-add" data-special="P"></div>
+            <div class="faserip-hoverable faserip-attribute" data-reference="Agility">
+                <div class="faserip-label">Agility</div>
+                <div class="faserip-rank">Typical</div>
+                <div class="faserip-rank2">(TY)</div>
+                <div class="faserip-button-subtract" data-faserip="A"></div>
+                <div class="faserip-value">5</div>
+                <div class="faserip-button-add" data-faserip="A"></div>
             </div>
-            <div class="special-hoverable special-attribute" data-reference="Endurance">
-                <div class="special-label">Endurance</div>
-                <div class="special-button-subtract" data-special="E"></div>
-                <div class="special-value">5</div>
-                <div class="special-button-add" data-special="E"></div>
+            <div class="faserip-hoverable faserip-attribute" data-reference="Strength">
+                <div class="faserip-label">Strength</div>
+                <div class="faserip-rank">Typical</div>
+                <div class="faserip-rank2">(TY)</div>
+                <div class="faserip-button-subtract" data-faserip="S"></div>
+                <div class="faserip-value">5</div>
+                <div class="faserip-button-add" data-faserip="S"></div>
             </div>
-            <div class="special-hoverable special-attribute" data-reference="Charisma">
-                <div class="special-label">Charisma</div>
-                <div class="special-button-subtract" data-special="C"></div>
-                <div class="special-value">5</div>
-                <div class="special-button-add" data-special="C"></div>
+            <div class="faserip-hoverable faserip-attribute" data-reference="Endurance">
+                <div class="faserip-label">Endurance</div>
+                <div class="faserip-rank">Typical</div>
+                <div class="faserip-rank2">(TY)</div>
+                <div class="faserip-button-subtract" data-faserip="E"></div>
+                <div class="faserip-value">5</div>
+                <div class="faserip-button-add" data-faserip="E"></div>
             </div>
-            <div class="special-hoverable special-attribute" data-reference="Intelligence">
-                <div class="special-label">Intelligence</div>
-                <div class="special-button-subtract" data-special="I"></div>
-                <div class="special-value">5</div>
-                <div class="special-button-add" data-special="I"></div>
+            <div class="faserip-hoverable faserip-attribute" data-reference="Reason">
+                <div class="faserip-label">Reason</div>
+                <div class="faserip-rank">Typical</div>
+                <div class="faserip-rank2">(TY)</div>
+                <div class="faserip-button-subtract" data-faserip="R"></div>
+                <div class="faserip-value">5</div>
+                <div class="faserip-button-add" data-faserip="R"></div>
             </div>
-            <div class="special-hoverable special-attribute" data-reference="Agility">
-                <div class="special-label">Agility</div>
-                <div class="special-button-subtract" data-special="A"></div>
-                <div class="special-value">5</div>
-                <div class="special-button-add" data-special="A"></div>
+            <div class="faserip-hoverable faserip-attribute" data-reference="Intuition">
+                <div class="faserip-label">Intuition</div>
+                <div class="faserip-rank">Typical</div>
+                <div class="faserip-rank2">(TY)</div>
+                <div class="faserip-button-subtract" data-faserip="I"></div>
+                <div class="faserip-value">5</div>
+                <div class="faserip-button-add" data-faserip="I"></div>
             </div>
-            <div class="special-hoverable special-attribute" data-reference="Luck">
-                <div class="special-label">Luck</div>
-                <div class="special-button-subtract" data-special="L"></div>
-                <div class="special-value">5</div>
-                <div class="special-button-add" data-special="L"></div>
+            <div class="faserip-hoverable faserip-attribute" data-reference="Psyche">
+                <div class="faserip-label">Psyche</div>
+                <div class="faserip-rank">Typical</div>
+                <div class="faserip-rank2">(TY)</div>
+                <div class="faserip-button-subtract" data-faserip="P"></div>
+                <div class="faserip-value">5</div>
+                <div class="faserip-button-add" data-faserip="P"></div>
             </div>
         </div>
         <div id="points_box">
-            <div id="points_value">5</div>
+            <div id="points_value">14</div>
             <div id="points_label">Points Available</div>
             <div id="view_perks"></div>
         </div>
         
         <div id="description_box">
-            <div id="gender_div"><button id="male">Male</button><button id="female">Female</button></div>
             <div id="img_wrapper"></div>
+            <div id="description_tittle">tittle</div>
             <div id="description">description</div>
         </div>
     </div>
+    <div id="powers_box">
+        <div id="powers_background_color"></div>
+        <div id="powers_header">
+            <div id="powers_header_tittle">Skills</div>
+        </div>
+        <div id="powers_wrapper">
+            <div class="powers-hoverable" data-reference="Power-1">
+                <div class="powers-label"><b>1.</b>Point Power</div>
+                <div class="powers-rank">Shift-0</div>
+                <div class="powers-rank2">(0)</div>
+                <div class="powers-button-subtract" data-power="P.1"></div>
+                <div class="powers-value">0</div>
+                <div class="powers-button-add" data-power="P.1"></div>
+            </div>
+            <div class="powers-hoverable" data-reference="Power-2">
+                <div class="powers-label"><b>1.</b>Point Power</div>
+                <div class="powers-rank">Shift-0</div>
+                <div class="powers-rank2">(0)</div>
+                <div class="powers-button-subtract" data-power="P.2"></div>
+                <div class="powers-value">0</div>
+                <div class="powers-button-add" data-power="P.2"></div>
+            </div>
+            <div class="powers-hoverable" data-reference="Power-3">
+                <div class="powers-label"><b>1.</b>Point Power</div>
+                <div class="powers-rank">Shift-0</div>
+                <div class="powers-rank2">(0)</div>
+                <div class="powers-button-subtract" data-power="P.3"></div>
+                <div class="powers-value">0</div>
+                <div class="powers-button-add" data-power="P.3"></div>
+            </div>
+            <div class="powers-hoverable" data-reference="Power-4">
+                <div class="powers-label"><b>2.</b>Point Power</div>
+                <div class="powers-rank">Shift-0</div>
+                <div class="powers-rank2">(0)</div>
+                <div class="powers-button-subtract" data-power="P.4"></div>
+                <div class="powers-value">0</div>
+                <div class="powers-button-add" data-power="P.4"></div>
+            </div>
+            <div class="powers-hoverable" data-reference="Power-5">
+                <div class="powers-label"><b>2.</b>Point Power</div>
+                <div class="powers-rank">Shift-0</div>
+                <div class="powers-rank2">(0)</div>
+                <div class="powers-button-subtract" data-power="P.5"></div>
+                <div class="powers-value">0</div>
+                <div class="powers-button-add" data-power="P.5"></div>
+            </div>
+            <div class="powers-hoverable" data-reference="Power-6">
+                <div class="powers-label"><b>2.</b>Point Power</div>
+                <div class="powers-rank">Shift-0</div>
+                <div class="powers-rank2">(0)</div>
+                <div class="powers-button-subtract" data-power="P.6"></div>
+                <div class="powers-value">0</div>
+                <div class="powers-button-add" data-power="P.6"></div>
+            </div>
+            <div class="powers-hoverable" data-reference="Power-7">
+                <div class="powers-label"><b>3.</b>Point Power</div>
+                <div class="powers-rank">Shift-0</div>
+                <div class="powers-rank2">(0)</div>
+                <div class="powers-button-subtract" data-power="P.7"></div>
+                <div class="powers-value">0</div>
+                <div class="powers-button-add" data-power="P.7"></div>
+            </div>
+            <div class="powers-hoverable" data-reference="Power-8">
+                <div class="powers-label"><b>3.</b>Point Power</div>
+                <div class="powers-rank">Shift-0</div>
+                <div class="powers-rank2">(0)</div>
+                <div class="powers-button-subtract" data-power="P.8"></div>
+                <div class="powers-value">0</div>
+                <div class="powers-button-add" data-power="P.8"></div>
+            </div>
+        </div>
+        <div id="talents_wrapper">
+            <div class="talents-hoverable" data-reference="Talent-1">
+                <div class="talents-label"><b>1.</b>Point Talent</div>
+                <div class="talents-button-subtract" data-talent="T.1"></div>
+                <div class="talents-value">0</div>
+                <div class="talents-button-add" data-talent="T.1"></div>
+            </div>
+            <div class="talents-hoverable" data-reference="Talent-2">
+                <div class="talents-label"><b>1.</b>Point Talent</div>
+                <div class="talents-button-subtract" data-talent="T.2"></div>
+                <div class="talents-value">0</div>
+                <div class="talents-button-add" data-talent="T.2"></div>
+            </div>
+            <div class="talents-hoverable" data-reference="Talent-3">
+                <div class="talents-label"><b>1.</b>Point Talent</div>
+                <div class="talents-button-subtract" data-talent="T.3"></div>
+                <div class="talents-value">0</div>
+                <div class="talents-button-add" data-talent="T.3"></div>
+            </div>
+            <div class="talents-hoverable" data-reference="Talent-4">
+                <div class="talents-label"><b>1.</b>Point Talent</div>
+                <div class="talents-button-subtract" data-talent="T.4"></div>
+                <div class="talents-value">0</div>
+                <div class="talents-button-add" data-talent="T.4"></div>
+            </div>
+            <div class="talents-hoverable" data-reference="Talent-5">
+                <div class="talents-label"><b>2.</b>Point Talent</div>
+                <div class="talents-button-subtract" data-talent="T.5"></div>
+                <div class="talents-value">0</div>
+                <div class="talents-button-add" data-talent="T.5"></div>
+            </div>
+            <div class="talents-hoverable" data-reference="Talent-6">
+                <div class="talents-label"><b>2.</b>Point Talent</div>
+                <div class="talents-button-subtract" data-talent="T.6"></div>
+                <div class="talents-value">0</div>
+                <div class="talents-button-add" data-talent="T.6"></div>
+            </div>
+            <div class="talents-hoverable" data-reference="Talent-2">
+                <div class="talents-label"><b>2.</b>Point Talent</div>
+                <div class="talents-button-subtract" data-talent="T.7"></div>
+                <div class="talents-value">0</div>
+                <div class="talents-button-add" data-talent="T.7"></div>
+            </div>
+            <div class="talents-hoverable" data-reference="Talent-8">
+                <div class="talents-label"><b>2.</b>Point Talent</div>
+                <div class="talents-button-subtract" data-talent="T.8"></div>
+                <div class="talents-value">0</div>
+                <div class="talents-button-add" data-talent="T.8"></div>
+            </div>
+        </div>
+        <div id="power_points_box">
+            <div id="power_points_value">10</div>
+            <div id="power_points_label">Points Available</div>
+            <div id="point_to_limit_box">
+                <div class="slot-button-subtract" data-talent="T.8"></div>
+                <div id="convert_points_label">Convert Power Slot to Point</div>
+                <div class="slot-button-add" data-talent="T.8"></div>
+            </div>
+            <div id="power_limit_value">4</div>
+            <div id="power_limit_label">Powers Available</div>
+        </div>
+    </div>
+    <div id="secondary_statistics">
+        <div id="statistics_background_color"></div>
+        <div id="statistics_header">
+            <div id="statistics_header_tittle">Secondary Statistics</div>
+        </div>
+        <div id="statistics_box">
+            <div class="statistic-hoverable" data-reference="Health">
+                <div class="statistic-label">Health (HP)</div>
+                <div class="statistic-value">20/20</div>
+            </div>
+            <div class="statistic-hoverable" data-reference="Karma">
+                <div class="statistic-label">Karma</div>
+                <div class="statistic-value">15</div>
+            </div>
+            <div class="statistic-hoverable" data-reference="Resources">
+                <div class="statistic-label">Resources</div>
+                <div class="statistic-value">0</div>
+            </div>
+            <div class="statistic-hoverable" data-reference="Experience">
+                <div class="statistic-label">Experience</div>
+                <div class="statistic-value">0</div>
+            </div>
+            <div class="statistic-hoverable" data-reference="Melee Damage">
+                <div class="statistic-label">Melee Damage</div>
+                <div class="statistic-value">5</div>
+            </div>
+            <div class="statistic-hoverable" data-reference="Movement Speed">
+                <div class="statistic-label">Movement Speed</div>
+                <div class="statistic-value">1 Area</div>
+            </div>
+        </div>
+        <div id="character_type_box">
+            <button id="Human" class="race-button">Human</button>
+            <button id="Hi-Tech" class="race-button">Hi-Tech</button>
+            <button id="Mutant" class="race-button">Mutant</button>
+            <button id="Altered_Human" class="race-button">Altered Human</button>
+            <button id="Alien" class="race-button">Alien</button>
+        </div>
+    </div>
+</div>
 </body>
 </html>
