@@ -7,11 +7,12 @@
     <title>Fallout Character Maker</title>
     <link rel="stylesheet" type="text/css" href="styles/style.css">
     <!-- <script nomodule defer type="text/javascript" src="scripts/legacyScript.js"></script> -->
-    <script type='module' defer src="scripts/script.js"></script>
+    <script type="module" src="scripts/script.js" defer></script>
 </head>
 <body>
+<div id="program_box">
     <div id="special_box">
-        <div id="background_color"></div>
+        <div id="special_background_color"></div>
         <div id="name_header">
             <div id="name_tittle">Name:</div>
             <input type="text" id="name_box" placeholder="NONE">
@@ -69,8 +70,197 @@
         <div id="description_box">
             <div id="gender_div"><button id="male">Male</button><button id="female">Female</button></div>
             <div id="img_wrapper"></div>
+            <div id="description_tittle">tittle</div><div id="description_formula"></div>
             <div id="description">description</div>
         </div>
     </div>
+    <div id="skill_box">
+        <div id="skill_background_color"></div>
+        <div id="skill_header">
+            <div id="skill_header_tittle">Skills</div>
+        </div>
+        <div id="skill_wrapper">
+            <div class="skill-hoverable" data-reference="Barter">
+                <div class="skill-label">Barter</div>
+                <div class="skill-value">0%</div>
+                <div class="skill-tag-button"><img class="skill-tagged" src="images/tag_btn_selected.png"></div>
+            </div>
+            <div class="skill-hoverable" data-reference="Big Guns">
+                <div class="skill-label">Big Guns</div>
+                <div class="skill-value">0%</div>
+                <div class="skill-tag-button"><img class="skill-tagged" src="images/tag_btn_selected.png"></div>
+            </div>
+            <div class="skill-hoverable" data-reference="Energy Weapons">
+                <div class="skill-label">Energy Weapons</div>
+                <div class="skill-value">0%</div>
+                <div class="skill-tag-button"><img class="skill-tagged" src="images/tag_btn_selected.png"></div>
+            </div>
+            <div class="skill-hoverable" data-reference="Gambling">
+                <div class="skill-label">Gambling</div>
+                <div class="skill-value">0%</div>
+                <div class="skill-tag-button"><img class="skill-tagged" src="images/tag_btn_selected.png"></div>
+            </div>
+            <div class="skill-hoverable" data-reference="Lockpick">
+                <div class="skill-label">Lockpick</div>
+                <div class="skill-value">0%</div>
+                <div class="skill-tag-button"><img class="skill-tagged" src="images/tag_btn_selected.png"></div>
+            </div>
+            <div class="skill-hoverable" data-reference="Medicine">
+                <div class="skill-label">Medicine</div>
+                <div class="skill-value">0%</div>
+                <div class="skill-tag-button"><img class="skill-tagged" src="images/tag_btn_selected.png"></div>
+            </div>
+            <div class="skill-hoverable" data-reference="Melee Weapons">
+                <div class="skill-label">Melee Weapons</div>
+                <div class="skill-value">0%</div>
+                <div class="skill-tag-button"><img class="skill-tagged" src="images/tag_btn_selected.png"></div>
+            </div>
+            <div class="skill-hoverable" data-reference="Repair">
+                <div class="skill-label">Repair</div>
+                <div class="skill-value">0%</div>
+                <div class="skill-tag-button"><img class="skill-tagged" src="images/tag_btn_selected.png"></div>
+            </div>
+            <div class="skill-hoverable" data-reference="Science">
+                <div class="skill-label">Science</div>
+                <div class="skill-value">0%</div>
+                <div class="skill-tag-button"><img class="skill-tagged" src="images/tag_btn_selected.png"></div>
+            </div>
+            <div class="skill-hoverable" data-reference="Small Guns">
+                <div class="skill-label">Small Guns</div>
+                <div class="skill-value">0%</div>
+                <div class="skill-tag-button"><img class="skill-tagged" src="images/tag_btn_selected.png"></div>
+            </div>
+            <div class="skill-hoverable" data-reference="Sneak">
+                <div class="skill-label">Sneak</div>
+                <div class="skill-value">0%</div>
+                <div class="skill-tag-button"><img class="skill-tagged" src="images/tag_btn_selected.png"></div>
+            </div>
+            <div class="skill-hoverable" data-reference="Speech">
+                <div class="skill-label">Speech</div>
+                <div class="skill-value">0%</div>
+                <div class="skill-tag-button"><img class="skill-tagged" src="images/tag_btn_selected.png"></div>
+            </div>
+            <div class="skill-hoverable" data-reference="Survival">
+                <div class="skill-label">Survival</div>
+                <div class="skill-value">0%</div>
+                <div class="skill-tag-button"><img class="skill-tagged" src="images/tag_btn_selected.png"></div>
+            </div>
+            <div class="skill-hoverable" data-reference="Throwing">
+                <div class="skill-label">Throwing</div>
+                <div class="skill-value">0%</div>
+                <div class="skill-tag-button"><img class="skill-tagged" src="images/tag_btn_selected.png"></div>
+            </div>
+            <div class="skill-hoverable" data-reference="Traps">
+                <div class="skill-label">Traps</div>
+                <div class="skill-value">0%</div>
+                <div class="skill-tag-button"><img class="skill-tagged" src="images/tag_btn_selected.png"></div>
+            </div>
+            <div class="skill-hoverable" data-reference="Unarmed">
+                <div class="skill-label">Unarmed</div>
+                <div class="skill-value">0%</div>
+                <div class="skill-tag-button"><img class="skill-tagged" src="images/tag_btn_selected.png"></div>
+            </div>
+        </div>
+    </div>
+    <div id="secondary_statistics">
+        <div id="statistics_background_color"></div>
+        <div id="statistics_header">
+            <div id="statistics_header_tittle">Secondary Statistics</div>
+        </div>
+        <div id="statistics_box">
+            <div class="statistic-hoverable" data-reference="Hit Points">
+                <div class="statistic-label">Hit Points</div>
+                <div class="statistic-value">0/0</div>
+            </div>
+            <div class="statistic-hoverable" data-reference="Armor Class">
+                <div class="statistic-label">Armor Class</div>
+                <div class="statistic-value">0</div>
+            </div>
+            <div class="statistic-hoverable" data-reference="Action Points">
+                <div class="statistic-label">Action Points</div>
+                <div class="statistic-value">0</div>
+            </div>
+            <div class="statistic-hoverable" data-reference="Carry Weight">
+                <div class="statistic-label">Carry Weight</div>
+                <div class="statistic-value">0</div>
+            </div>
+            <div class="statistic-hoverable" data-reference="Melee Damage">
+                <div class="statistic-label">Melee Damage</div>
+                <div class="statistic-value">0</div>
+            </div>
+            <div class="statistic-hoverable" data-reference="Damage Resistance">
+                <div class="statistic-label">Damage Res.</div>
+                <div class="statistic-value">0%</div>
+            </div>
+            <div class="statistic-hoverable" data-reference="Poison Resistance">
+                <div class="statistic-label">Poison Res.</div>
+                <div class="statistic-value">0%</div>
+            </div>
+            <div class="statistic-hoverable" data-reference="Radiation Resistance">
+                <div class="statistic-label">Radiation Res.</div>
+                <div class="statistic-value">0%</div>
+            </div>
+            <div class="statistic-hoverable" data-reference="Electric Resistance">
+                <div class="statistic-label">Electric Res.</div>
+                <div class="statistic-value">0%</div>
+            </div>
+            <div class="statistic-hoverable" data-reference="Sequence">
+                <div class="statistic-label">Sequence</div>
+                <div class="statistic-value">0</div>
+            </div>
+            <div class="statistic-hoverable" data-reference="Healing Rate">
+                <div class="statistic-label">Healing Rate</div>
+                <div class="statistic-value">0</div>
+            </div>
+            <div class="statistic-hoverable" data-reference="Critical Chance">
+                <div class="statistic-label">Critical Chance</div>
+                <div class="statistic-value">0</div>
+            </div>
+        </div>
+    </div>
+    <div id="trait_box">
+        <div id="traits_background_color"></div>
+        <div id="traits_header">
+            <div id="traits_header_tittle">Traits</div>
+            <div class="traits-button-subtract"></div>
+            <div class="traits-value">1</div>
+            <div class="traits-button-add"></div>
+        </div>
+        <div id="trait_wrapper">
+            <div class="trait-hoverable" data-reference="trait1">
+                <div class="trait-label">Hit Points</div>
+                <div class="trait-button"><img class="trait-selected" src="images/tag_btn_selected.png"></div>
+            </div>
+            <div class="trait-hoverable" data-reference="trait2">
+                <div class="trait-label">Armor Class</div>
+                <div class="trait-button"><img class="trait-selected" src="images/tag_btn_selected.png"></div>
+            </div>
+            <div class="trait-hoverable" data-reference="trait3">
+                <div class="trait-label">Action Points</div>
+                <div class="trait-button"><img class="trait-selected" src="images/tag_btn_selected.png"></div>
+            </div>
+            <div class="trait-hoverable" data-reference="trait4">
+                <div class="trait-label">Carry Weight</div>
+                <div class="trait-button"><img class="trait-selected" src="images/tag_btn_selected.png"></div>
+            </div>
+            <div class="trait-hoverable" data-reference="trait5">
+                <div class="trait-label">Melee Damage</div>
+                <div class="trait-button"><img class="trait-selected" src="images/tag_btn_selected.png"></div>
+            </div>
+            <div class="trait-hoverable" data-reference="trait6">
+                <div class="trait-label">Damage Res.</div>
+                <div class="trait-button"><img class="trait-selected" src="images/tag_btn_selected.png"></div>
+            </div>
+            <div class="trait-hoverable" data-reference="trait7">
+                <div class="trait-label">Poison Res.</div>
+                <div class="trait-button"><img class="trait-selected" src="images/tag_btn_selected.png"></div>
+            </div>
+            <div class="trait-hoverable" data-reference="trait8">
+                <div class="trait-label">Radiation Res.</div>
+                <div class="trait-button"><img class="trait-selected" src="images/tag_btn_selected.png"></div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

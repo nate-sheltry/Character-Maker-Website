@@ -1,10 +1,12 @@
+import * as Sk from './skill_node.js'
+import * as Stat from './secondaryStatistics_node.js'
 
 //Special
 export const SPECIAL = {S: 5, P: 5, E: 5, C: 5, I: 5, A: 5, L: 5}
 export const SPECIAL_MIN = {S: 1, P: 1, E: 1, C: 1, I: 1, A: 1, L: 1}
 export const SPECIAL_MAX = {S: 10, P: 10, E: 10, C: 10, I: 10, A: 10, L: 10}
 
-let specialPoints = 5;
+export let specialPoints = 5;
 const subSpecialButton = "special-button-subtract";
 const addSpecialButton = "special-button-add";
 const __specialPointText = document.querySelector("#points_value");
@@ -46,32 +48,40 @@ export function handleAddSpecial(e){
         case "S":
             [SPECIAL.S, specialPoints] =
             addSpecial(SPECIAL_MAX.S, SPECIAL.S, specialPoints);
-            displaySpecial(textObject, SPECIAL.S); break;
+            displaySpecial(textObject, SPECIAL.S); Stat.calcStrengthStats();
+            Sk.calculateStrengthSkills(SPECIAL.S, SPECIAL.A); break;
         case "P":
             [SPECIAL.P, specialPoints] =
             addSpecial(SPECIAL_MAX.P, SPECIAL.P, specialPoints);
-            displaySpecial(textObject, SPECIAL.P); break;
+            displaySpecial(textObject, SPECIAL.P); Stat.calcPerceptionStats();
+            Sk.calculatePerceptionSkills(SPECIAL.P, SPECIAL.I, SPECIAL.A); break;
         case "E":
             [SPECIAL.E, specialPoints] =
             addSpecial(SPECIAL_MAX.E, SPECIAL.E, specialPoints);
-            displaySpecial(textObject, SPECIAL.E, ); break;
+            displaySpecial(textObject, SPECIAL.E, ); Stat.calcEnduranceStats();
+            Sk.calculateEnduranceSkills(SPECIAL.E, SPECIAL.I); break;
         case "C":
             [SPECIAL.C, specialPoints] =
             addSpecial(SPECIAL_MAX.C, SPECIAL.C, specialPoints);
-            displaySpecial(textObject, SPECIAL.C); break;
+            displaySpecial(textObject, SPECIAL.C); 
+            Sk.calculateCharismaSkills(SPECIAL.C, SPECIAL.L); break;
         case "I":
             [SPECIAL.I, specialPoints] =
             addSpecial(SPECIAL_MAX.I, SPECIAL.I, specialPoints);
-            displaySpecial(textObject, SPECIAL.I); break;
+            displaySpecial(textObject, SPECIAL.I); 
+            Sk.calculateIntelligenceSkills(SPECIAL.P, SPECIAL.E, SPECIAL.I); break;
         case "A":
             [SPECIAL.A, specialPoints] =
             addSpecial(SPECIAL_MAX.A, SPECIAL.A, specialPoints);
-            displaySpecial(textObject, SPECIAL.A); break;
+            displaySpecial(textObject, SPECIAL.A); Stat.calcEnduranceStats();
+            Sk.calculateAgilitySkills(SPECIAL.S, SPECIAL.P, SPECIAL.A); break;
         case "L":
             [SPECIAL.L, specialPoints] =
             addSpecial(SPECIAL_MAX.L, SPECIAL.L, specialPoints);
-            displaySpecial(textObject, SPECIAL.L); break;
+            displaySpecial(textObject, SPECIAL.L); Stat.calcCritChance();
+            Sk.calculateLuckSkills(SPECIAL.C, SPECIAL.L); break;
     }
+    Stat.setSecondaryStatistics();
     setTimeout(function(){
     e.target.style.margin = "5px";e.target.style.marginRight = "0px";
     }, 50);
@@ -88,32 +98,40 @@ export function handleSubSpecial(e){
         case "S":
             [SPECIAL.S, specialPoints] =
             subtractSpecial(SPECIAL_MIN.S, SPECIAL.S, specialPoints);
-            displaySpecial(textObject, SPECIAL.S); break;
+            displaySpecial(textObject, SPECIAL.S); Stat.calcStrengthStats();
+            Sk.calculateStrengthSkills(SPECIAL.S, SPECIAL.A); break;
         case "P":
             [SPECIAL.P, specialPoints] =
             subtractSpecial(SPECIAL_MIN.P, SPECIAL.P, specialPoints);
-            displaySpecial(textObject, SPECIAL.P); break;
+            displaySpecial(textObject, SPECIAL.P); Stat.calcPerceptionStats();
+            Sk.calculatePerceptionSkills(SPECIAL.P, SPECIAL.I, SPECIAL.A); break;
         case "E":
             [SPECIAL.E, specialPoints] =
             subtractSpecial(SPECIAL_MIN.E, SPECIAL.E, specialPoints);
-            displaySpecial(textObject, SPECIAL.E); break;
+            displaySpecial(textObject, SPECIAL.E); Stat.calcEnduranceStats();
+            Sk.calculateEnduranceSkills(SPECIAL.E, SPECIAL.I); break;
         case "C":
             [SPECIAL.C, specialPoints] =
             subtractSpecial(SPECIAL_MIN.C, SPECIAL.C, specialPoints);
-            displaySpecial(textObject, SPECIAL.C); break;
+            displaySpecial(textObject, SPECIAL.C); 
+            Sk.calculateCharismaSkills(SPECIAL.C, SPECIAL.L); break;
         case "I":
             [SPECIAL.I, specialPoints] =
             subtractSpecial(SPECIAL_MIN.I, SPECIAL.I, specialPoints);
-            displaySpecial(textObject, SPECIAL.I); break;
+            displaySpecial(textObject, SPECIAL.I); 
+            Sk.calculateIntelligenceSkills(SPECIAL.P, SPECIAL.E, SPECIAL.I); break;
         case "A":
             [SPECIAL.A, specialPoints] =
             subtractSpecial(SPECIAL_MIN.A, SPECIAL.A, specialPoints);
-            displaySpecial(textObject, SPECIAL.A); break;
+            displaySpecial(textObject, SPECIAL.A); Stat.calcAgilityStats(); 
+            Sk.calculateAgilitySkills(SPECIAL.S, SPECIAL.P, SPECIAL.A); break;
         case "L":
             [SPECIAL.L, specialPoints] =
             subtractSpecial(SPECIAL_MIN.L, SPECIAL.L, specialPoints);
-            displaySpecial(textObject, SPECIAL.L); break;
+            displaySpecial(textObject, SPECIAL.L); Stat.calcCritChance();
+            Sk.calculateLuckSkills(SPECIAL.C, SPECIAL.L); break;
     }
+    Stat.setSecondaryStatistics();
     setTimeout(function(){
         e.target.style.margin = "5px";e.target.style.marginRight = "0px";
         e.target.style.marginLeft = "10px";
