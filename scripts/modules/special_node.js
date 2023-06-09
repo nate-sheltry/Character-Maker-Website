@@ -1,10 +1,50 @@
 import * as Sk from './skill_node.js'
 import * as Stat from './secondaryStatistics_node.js'
+import {Trait, TYPE} from './traitsClass.js';
+
+//Enums/Trait Types
 
 //Special
 export const SPECIAL = {S: 5, P: 5, E: 5, C: 5, I: 5, A: 5, L: 5}
 export const SPECIAL_MIN = {S: 1, P: 1, E: 1, C: 1, I: 1, A: 1, L: 1}
 export const SPECIAL_MAX = {S: 10, P: 10, E: 10, C: 10, I: 10, A: 10, L: 10}
+
+//Combat Traits
+export const traitDict = {
+bruiser: new Trait('Bruiser', TYPE.SPECIAL, SPECIAL, ['S'], 1, TYPE.STATISTIC, Stat.secStats, ['AP'], -2),
+fastShot: new Trait('Fast Shot', TYPE.DESCRIPTION),
+finesse: new Trait('Finesse', TYPE.STATISTIC, Stat.secStats, ['CC'], 10),
+// glowingOne: new Trait('Glowing One', TYPE.STATISTIC, Stat.secStats, ['radResistance'], 50);
+// hamFisted: new Trait('Ham Fisted', TYPE.SKILL, Sk.skills.unarmed, ['tagged'], true, TYPE.SKILL, Sk.skills, ['smallGuns', 'medicine', 'repair', 'science', 'lockpick'], -20);
+heavyHanded: new Trait('Heavy Handed', TYPE.STATISTIC, Stat.secStats, ['MD'], 4),
+jinxed: new Trait('Jinxed', TYPE.DESCRIPTION),
+kamikaze: new Trait('Kamikaze', TYPE.STATISTIC, Stat.secStats, ['AC'], -20,  TYPE.STATISTIC, Stat.secStats, ['SQ'], 5),
+oneHander: new Trait('One Hander', TYPE.DESCRIPTION),
+//rabid: new Trait('Rabid', TYPE.DESCRIPTION), //Only Animals
+builtToDestroy: new Trait('Built To Destroy', TYPE.STATISTIC, Stat.secStats, ['AP'], 2,  TYPE.DESCRIPTION),
+hotBlooded: new Trait('Hot Blooded', TYPE.DESCRIPTION),
+triggerDiscipline: new Trait('Trigger Discipline', TYPE.DESCRIPTION),
+
+//non-combat
+chemReliant: new Trait('Chem Reliant', TYPE.DESCRIPTION),
+chemResistant: new Trait('Chem Resistant', TYPE.DESCRIPTION),
+//domesticated: new Trait('Domesticated', TYPE.SPECIAL, SPECIAL, ['S'], 1, TYPE.STATISTIC, Stat.secStats, ['MD'], -2), //Only Animal
+fastMetabolism: new Trait('Fast Metabolism', TYPE.STATISTIC, Stat.secStats, ['HR'], TYPE.STATISTIC, Stat.secStats, ['radResistance', 'poisResistance'], -100),
+//fearTheReaper: new Trait('Fear The Reaper', TYPE.DESCRIPTION), //Only Ghoul
+//No Animal/Robot
+goodNatured: new Trait('Good Natured', TYPE.SKILL, Sk.skills, 
+['meicine','speech','repair', 'science', 'barter'], 15, TYPE.SKILL, Sk.skills, ['smallGuns', 'bigGuns', 'energyWeapons', 'unarmed', 'meleeWeapons'], -10),
+nightPerson: new Trait('Night Person', TYPE.DESCRIPTION),
+sexAppeal: new Trait('Sex Appeal', TYPE.DESCRIPTION),
+skilled: new Trait('Skilled', TYPE.SKILL, Sk.skills, Object.keys(Sk.skills), 10, TYPE.DESCRIPTION),
+smallFrame: new Trait('Small Frame', TYPE.SPECIAL, SPECIAL, ['A'], 1, TYPE.STATISTIC, Stat.secStats, ['CW'], (15 * SPECIAL.S)),
+techWizard: new Trait('Tech Wizard', TYPE.SPECIAL, SPECIAL, ['P'], -1, TYPE.SKILL, Sk.skills, ['science', 'repair', 'energyWeapons', 'lockpick'], 15)
+}
+
+console.log(traitDict.bruiser);
+traitDict.bruiser.selected = true;
+traitDict.bruiser.applyEffects();
+
 
 export let specialPoints = 5;
 const subSpecialButton = "special-button-subtract";
@@ -22,7 +62,7 @@ export function subtractSpecial(min, stat, Points){
 	return [stat, Points]}
 
 export function addSpecial(max, stat, Points){
-	if(stat < max && Points > 0){
+    if(stat < max && Points > 0){
 		stat += 1;
 		Points -= 1;
 		console.log(stat);}
@@ -41,8 +81,7 @@ export function handleAddSpecial(e){
     if(!e.target.classList.contains(addSpecialButton)){
         return
     }
-    e.target.style.marginRight = "-2px"; e.target.style.marginLeft = "7px";
-    e.target.style.marginTop = "7px"; e.target.style.marginBottom = "3px";
+    var margin = e.target.style.margin;
     let textObject = e.target.parentElement.querySelector(".special-value");
     switch(e.target.dataset.special){
         case "S":
@@ -73,7 +112,7 @@ export function handleAddSpecial(e){
         case "A":
             [SPECIAL.A, specialPoints] =
             addSpecial(SPECIAL_MAX.A, SPECIAL.A, specialPoints);
-            displaySpecial(textObject, SPECIAL.A); Stat.calcEnduranceStats();
+            displaySpecial(textObject, SPECIAL.A); Stat.calcAgilityStats();
             Sk.calculateAgilitySkills(SPECIAL.S, SPECIAL.P, SPECIAL.A); break;
         case "L":
             [SPECIAL.L, specialPoints] =
@@ -83,7 +122,7 @@ export function handleAddSpecial(e){
     }
     Stat.setSecondaryStatistics();
     setTimeout(function(){
-    e.target.style.margin = "5px";e.target.style.marginRight = "0px";
+    e.target.style.margin = margin;
     }, 50);
 }
 
@@ -91,8 +130,7 @@ export function handleSubSpecial(e){
     if(!e.target.classList.contains(subSpecialButton)){
         return;
     }
-    e.target.style.marginRight = "2px"; e.target.style.marginLeft = "8px";
-    e.target.style.marginTop = "7px"; e.target.style.marginBottom = "3px";
+    var margin = e.target.style.margin;
     let textObject = e.target.parentElement.querySelector(".special-value");
     switch(e.target.dataset.special){
         case "S":
@@ -133,7 +171,6 @@ export function handleSubSpecial(e){
     }
     Stat.setSecondaryStatistics();
     setTimeout(function(){
-        e.target.style.margin = "5px";e.target.style.marginRight = "0px";
-        e.target.style.marginLeft = "10px";
+    e.target.style.margin = margin;
     }, 50);
 }

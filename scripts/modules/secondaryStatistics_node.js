@@ -1,9 +1,7 @@
 import * as Sp from './special_node.js'
 import * as Traits from './traits_node.js'
 
-export let HP = 0; export let AC = 0; export let AP = 0; export let carryWeight = 0; 
-export let MD = 0; export let SQ = 0; export let HR = 0; export let CC = 0;
-export let radResistance = 0; export let poisResistance = 0; export let elecResistance = 0;
+export const secStats = {HP:0, AC:0, AP:0, CW:0, MD:0, SQ:0, HR:0, CC:0, radResistance:0, poisResistance:0, elecResistance: 0}
 
 //HTML/CSS Objects
 const __secondaryStatisticsWrapper = document.querySelector("#secondary_statistics").querySelector("#statistics_box")
@@ -47,46 +45,51 @@ function apCalc(){
 }
 
 function statTraitCheck(){
-	if(Traits.bruiser == true)
-		AP -= 2;
+	//run code to check for trait effects
 	
+}
+function checkStatistics(){
+	secStats.forEach(stat => {
+		if(stat < 0){stat = 0;}
+	});
 }
 
 export function setSecondaryStatistics(){
 	statTraitCheck();
-	__hpValue.textContent = `${HP}/${HP}`;
-	__acValue.textContent = `${AC}`;
-	__apValue.textContent = `${AP}`;
-	__cwValue.textContent = `${carryWeight}`;
-	__mdValue.textContent = `${MD}`;
+	//checkStatistics();
+	__hpValue.textContent = `${secStats.HP}/${secStats.HP}`;
+	__acValue.textContent = `${secStats.AC}`;
+	__apValue.textContent = `${secStats.AP}`;
+	__cwValue.textContent = `${secStats.CW}`;
+	__mdValue.textContent = `${secStats.MD}`;
 	__drValue.textContent = `${0}%`;
-	__prValue.textContent = `${poisResistance}%`;
-	__rrValue.textContent = `${radResistance}%`;
-	__erValue.textContent = `${elecResistance}%`;
-	__sqValue.textContent = `${SQ}`;
-	__hrValue.textContent = `${HR}`;
-	__ccValue.textContent = `${CC}%`;
+	__prValue.textContent = `${secStats.poisResistance}%`;
+	__rrValue.textContent = `${secStats.radResistance}%`;
+	__erValue.textContent = `${secStats.elecResistance}%`;
+	__sqValue.textContent = `${secStats.SQ}`;
+	__hrValue.textContent = `${secStats.HR}`;
+	__ccValue.textContent = `${secStats.CC}%`;
 
 
 }
 
 export function calcAllSecondaryStats(){
 	//Calculate Them
-	HP = (15 + (Sp.SPECIAL.S + (2 * Sp.SPECIAL.E)));
-	AC = Sp.SPECIAL.A;
+	secStats.HP = (15 + (Sp.SPECIAL.S + (2 * Sp.SPECIAL.E)));
+	secStats.AC = Sp.SPECIAL.A;
 
-	AP = parseInt(apCalc());
-	carryWeight = (25 + (25 * Sp.SPECIAL.S));
+	secStats.AP = parseInt(apCalc());
+	secStats.CW = (25 + (25 * Sp.SPECIAL.S));
 	
 
-	MD = parseInt(meleeDamage());
-	SQ = (2 * Sp.SPECIAL.P);	
+	secStats.MD = parseInt(meleeDamage());
+	secStats.SQ = (2 * Sp.SPECIAL.P);	
 
-	HR = parseInt(healingRate());
-	CC = Sp.SPECIAL.L;
-	radResistance = (2*Sp.SPECIAL.E);
-	poisResistance = (5*Sp.SPECIAL.E);
-	elecResistance = 30;
+	secStats.HR = parseInt(healingRate());
+	secStats.CC = Sp.SPECIAL.L;
+	secStats.radResistance = (2*Sp.SPECIAL.E);
+	secStats.poisResistance = (5*Sp.SPECIAL.E);
+	secStats.elecResistance = 30;
 //	switch(charRace){
 //		case "human":
 //			elecResistance = 30;
@@ -108,23 +111,23 @@ export function calcAllSecondaryStats(){
 
 export function calcStrengthStats(){
 
-	HP = (15 + (Sp.SPECIAL.S + (2 * Sp.SPECIAL.E)));
-	carryWeight = (25 + (25 * Sp.SPECIAL.S));
+	secStats.HP = (15 + (Sp.SPECIAL.S + (2 * Sp.SPECIAL.E)));
+	secStats.CW = (25 + (25 * Sp.SPECIAL.S));
 
-	MD = parseInt(meleeDamage());
+	secStats.MD = parseInt(meleeDamage());
 }
 
 export function calcEnduranceStats(){
-	HP = (15 + (Sp.SPECIAL.S + (2 * Sp.SPECIAL.E)));	
+	secStats.HP = (15 + (Sp.SPECIAL.S + (2 * Sp.SPECIAL.E)));	
 
-	HR = parseInt(healingRate());
-	radResistance = (2*Sp.SPECIAL.E);
-	poisResistance = (5*Sp.SPECIAL.E);
+	secStats.HR = parseInt(healingRate());
+	secStats.radResistance = (2*Sp.SPECIAL.E);
+	secStats.poisResistance = (5*Sp.SPECIAL.E);
 }
 
 export function calcAgilityStats(){
-	AC = Sp.SPECIAL.A;
-	AP = parseInt(apCalc());
+	secStats.AC = Sp.SPECIAL.A;
+	secStats.AP = parseInt(apCalc());
 }
-export function calcPerceptionStats() {SQ = (2 * Sp.SPECIAL.P);	}
-export function calcCritChance() {CC = Sp.SPECIAL.L; }
+export function calcPerceptionStats() {secStats.SQ = (2 * Sp.SPECIAL.P);	}
+export function calcCritChance() {secStats.CC = Sp.SPECIAL.L; }

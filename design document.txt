@@ -1,0 +1,26 @@
+export let bruiser = false;	export let fastShot = false; export let finesse = false;
+export let hvyHanded = false; export let jinxed = false; export let kamikaze = false;
+export let oneHander = false; export let hotBlooded = false; 
+
+export let builtToDestroy = false; export let triggerDiscipline = false;
+export let hotBloodedCheck = false;
+
+//non-Combat
+export let chemReliant = false;	export let chemResistant = false; export let fastMetabolism = false;
+export let gifted = false; export let goodNatured = false; 
+
+export let nightPerson = false; export let skilled = false;	
+export let smallFrame = false; export let techWizard = false;
+export let techWizardCheck = false;
+
+//Only Human
+export let sexAppeal = false;	
+
+//Mutants
+let hamFisted = false; let hamFistedCheck = false; let vatSkin = false;
+
+//Dog's - Deathclaw's
+let domesticated = false; let rabid = false;
+
+//Ghouls
+let glowingOne = false; let fearTheReaper = false;

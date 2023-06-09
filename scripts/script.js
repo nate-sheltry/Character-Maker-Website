@@ -1,8 +1,7 @@
 "use strict";
 //Import functions from other script files\
-
-import * as Sk from './modules/skill_node.js';
 import * as Sp from './modules/special_node.js';
+import * as Sk from './modules/skill_node.js';
 import * as Stat from './modules/secondaryStatistics_node.js';
 import * as Traits from './modules/traits_node.js';
 
@@ -23,11 +22,12 @@ const root = document.documentElement;
 const __nameBox = document.querySelector("#name_header");
 const __specialWrapper = document.querySelector(".special-hoverable").parentElement;
 const __specialHover = "special-hoverable"
-const __gender = document.querySelector("#gender_div");
 const __skillWrapper = document.querySelector(".skill-hoverable").parentElement;
 const __descriptionTittle = document.querySelector("#description_box").querySelector("#description_tittle");
 const __descriptionFormula = document.querySelector("#description_box").querySelector("#description_formula");
 const __descriptionText = document.querySelector("#description_box").lastElementChild;
+
+const __specialImage = document.querySelector("#img_wrapper").firstChild;
 
 const __traitPageButtonSub = document.querySelector(".traits-button-subtract");
 const __traitPageButtonAdd = document.querySelector(".traits-button-add");
@@ -67,7 +67,7 @@ function hoverEffect(e){
         gender = "female";
     }
     if(e.target.parentElement == __nameBox){
-        specialImage = "url(\"../images/"+ gender +"/amber/special-hover-name.png\")";
+        specialImage = "images/"+ gender +"/amber/special-hover-name.png";
     }
     let data_reference;
     if(e.target.classList.contains(__specialHover))
@@ -76,47 +76,47 @@ function hoverEffect(e){
         data_reference = e.target.parentElement.dataset.reference
         switch(data_reference){
             case "Strength":
-                specialImage = "url(\"../images/"+ gender +"/amber/special-hover-str.png\")";
+                specialImage = "images/"+ gender +"/amber/special-hover-str.png";
                 __descriptionText.textContent = specialInfo.strength;
                 __descriptionTittle.textContent = data_reference
                 break;
             case "Perception":
-                specialImage = "url(\"../images/"+ gender +"/amber/special-hover-per.png\")";
+                specialImage = "images/"+ gender +"/amber/special-hover-per.png";
                 __descriptionText.textContent = specialInfo.perception;
                 __descriptionTittle.textContent = data_reference
                 break;
             case "Endurance":
-                specialImage = "url(\"../images/"+ gender +"/amber/special-hover-end.png\")";
+                specialImage = "images/"+ gender +"/amber/special-hover-end.png";
                 __descriptionText.textContent = specialInfo.endurance;
                 __descriptionTittle.textContent = data_reference
                 break;
             case "Charisma":
-                specialImage = "url(\"../images/"+ gender +"/amber/special-hover-cha.png\")";
+                specialImage = "images/"+ gender +"/amber/special-hover-cha.png";
                 __descriptionText.textContent = specialInfo.charisma;
                 __descriptionTittle.textContent = data_reference
                 break;
             case "Intelligence":
-                specialImage = "url(\"../images/"+ gender +"/amber/special-hover-int.png\")";
+                specialImage = "images/"+ gender +"/amber/special-hover-int.png";
                 __descriptionText.textContent = specialInfo.intelligence;
                 __descriptionTittle.textContent = data_reference
                 break;
             case "Agility":
-                specialImage = "url(\"../images/"+ gender +"/amber/special-hover-agi.png\")";
+                specialImage = "images/"+ gender +"/amber/special-hover-agi.png";
                 __descriptionText.textContent = specialInfo.agility;
                 __descriptionTittle.textContent = data_reference
                 break;
             case "Luck":
-                specialImage = "url(\"../images/"+ gender +"/amber/special-hover-lck.png\")";
+                specialImage = "images/"+ gender +"/amber/special-hover-lck.png";
                 __descriptionText.textContent = specialInfo.luck;
                 __descriptionTittle.textContent = data_reference
                 break;
         }
-    changeCSSVariable("--special-image", specialImage);
+        __specialImage.src = specialImage;
 }
 function getRidOfFormula(){
-    if(__descriptionText.style.marginTop == "-12px")
+    if(__descriptionText.style.marginTop == "-1em")
         return;
-    __descriptionFormula.textContent = "";  __descriptionText.style.marginTop = "-12px";
+    __descriptionFormula.textContent = "";  __descriptionText.style.marginTop = "-1em";
 }
 
 
@@ -127,8 +127,6 @@ function findTarget(e){
 
 __nameBox.addEventListener("pointerover", hoverEffect);
 __specialWrapper.addEventListener("pointerover", hoverEffect);
-__gender.firstElementChild.addEventListener("click", genderSelect)
-__gender.lastElementChild.addEventListener("click", genderSelect)
 //Special Buttons
 __specialWrapper.addEventListener("click", Sp.handleSubSpecial)
 __specialWrapper.addEventListener("click", Sp.handleAddSpecial)

@@ -1,4 +1,5 @@
 
+
 //We are using skill-tag, because the button div class is "skill-tag-btn", and the img class is "skill-tagged"
 //So using contains("skill-tag") will run regardless of which element is the source of the event.
 //We want this because the img class skill-tagged is placed over the skill-tag-btn class img.
@@ -44,8 +45,8 @@ export const throwing = {value: 0, tagged: false};
 export const traps = {value: 0, tagged: false};
 export const unarmed = {value: 0, tagged: false};
 
-const skills = [barter, bigGuns, energyWeapons, gambling, lockpick, medicine, meleeWeapons, repair, science,
-smallGuns, sneak, speech, survival, throwing, traps, unarmed]
+export const skills = {barter:barter, bigGuns:bigGuns, energyWeapons:energyWeapons, gambling:gambling, lockpick:lockpick, medicine:medicine, meleeWeapons:meleeWeapons,
+                       repair:repair, science:science, smallGuns:smallGuns, sneak:sneak, speech:speech, survival:survival, throwing:throwing, traps:traps, unarmed:unarmed}
 
 export function calculateAllSkills(Str, Per, End, Cha, Int, Agi, Lck){
     barter.value = (4 * Cha);
@@ -156,25 +157,25 @@ export function hoverEffect(e, textBox, tittleBox, formulaBox, info, __skillWrap
         dataReference = e.target.dataset.reference
     else
         return;
-    textBox.style.marginTop = "0px";
+    textBox.style.marginTop = "1.4em";
     tittleBox.textContent = dataReference
     switch(dataReference){
-        case "Barter":  textBox.textContent = info.barter.info; formulaBox.textContent = info.barter.formula; break;
-        case "Big Guns": textBox.textContent = info.bigGuns.info; formulaBox.textContent = info.bigGuns.formula; break;
-        case "Energy Weapons": textBox.textContent = info.energyWeapons.info; formulaBox.textContent = info.energyWeapons.formula; break;
-        case "Gambling": textBox.textContent = info.gambling.info; formulaBox.textContent = info.gambling.formula; break;
-        case "Lockpick": textBox.textContent = info.lockpick.info; formulaBox.textContent = info.lockpick.formula; break;
-        case "Medicine": textBox.textContent = info.medicine.info; formulaBox.textContent = info.medicine.formula; break;
-        case "Melee Weapons": textBox.textContent = info.meleeWeapons.info; formulaBox.textContent = info.meleeWeapons.formula; break;
-        case "Repair": textBox.textContent = info.repair.info; formulaBox.textContent = info.repair.formula; break;
-        case "Science": textBox.textContent = info.science.info; formulaBox.textContent = info.science.formula; break;
-        case "Small Guns": textBox.textContent = info.smallGuns.info; formulaBox.textContent = info.smallGuns.formula; break;
-        case "Sneak": textBox.textContent = info.sneak.info; formulaBox.textContent = info.sneak.formula; break;
-        case "Speech": textBox.textContent = info.speech.info; formulaBox.textContent = info.speech.formula; break;
-        case "Survival": textBox.textContent = info.survival.info; formulaBox.textContent = info.survival.formula; break;
-        case "Throwing": textBox.textContent = info.throwing.info; formulaBox.textContent = info.throwing.formula; break;
-        case "Traps": textBox.textContent = info.traps.info; formulaBox.textContent = info.traps.formula; break;
-        case "Unarmed": textBox.textContent = info.unarmed.info; formulaBox.textContent = info.unarmed.formula; break;
+        case "Barter":  textBox.textContent = info.barter.info; formulaBox.innerHTML = info.barter.formula; break;
+        case "Big Guns": textBox.textContent = info.bigGuns.info; formulaBox.innerHTML = info.bigGuns.formula; break;
+        case "Energy Weapons": textBox.textContent = info.energyWeapons.info; formulaBox.innerHTML = info.energyWeapons.formula; break;
+        case "Gambling": textBox.textContent = info.gambling.info; formulaBox.innerHTML = info.gambling.formula; break;
+        case "Lockpick": textBox.textContent = info.lockpick.info; formulaBox.innerHTML = info.lockpick.formula; break;
+        case "Medicine": textBox.textContent = info.medicine.info; formulaBox.innerHTML = info.medicine.formula; break;
+        case "Melee Weapons": textBox.textContent = info.meleeWeapons.info; formulaBox.innerHTML = info.meleeWeapons.formula; break;
+        case "Repair": textBox.textContent = info.repair.info; formulaBox.innerHTML = info.repair.formula; break;
+        case "Science": textBox.textContent = info.science.info; formulaBox.innerHTML = info.science.formula; break;
+        case "Small Guns": textBox.textContent = info.smallGuns.info; formulaBox.innerHTML = info.smallGuns.formula; break;
+        case "Sneak": textBox.textContent = info.sneak.info; formulaBox.innerHTML = info.sneak.formula; break;
+        case "Speech": textBox.textContent = info.speech.info; formulaBox.innerHTML = info.speech.formula; break;
+        case "Survival": textBox.textContent = info.survival.info; formulaBox.innerHTML = info.survival.formula; break;
+        case "Throwing": textBox.textContent = info.throwing.info; formulaBox.innerHTML = info.throwing.formula; break;
+        case "Traps": textBox.textContent = info.traps.info; formulaBox.innerHTML = info.traps.formula; break;
+        case "Unarmed": textBox.textContent = info.unarmed.info; formulaBox.innerHTML = info.unarmed.formula; break;
         default: console.log("I shouldn't have ran.")
     }
 }

@@ -11,22 +11,22 @@
 	"":"",
 
 	"skills":{
-		"barter":{"formula":"Base: 0% + (4 x CH)", "info":"Trading and trade- related tasks. The ability to get better prices for items you sell, and lower prices for items you buy."},
-		"bigGuns":{"formula":"Base: 0% + (2 x AG)", "info":"The operation and maintenance of really big guns miniguns, rocket launchers, flamethrowers and such."},
-		"energyWeapons":{"formula":"Base: 0% + (2 x AG)", "info":"The care and feeding. of energy-based weapons. How to arm and operate weapons that use laser or plasma technology."},
-		"gambling":{"formula":"Base: 10% + ((2 x CH) + (2 x LK))", "info":"The knowledge and practical skills related to wagering. The skill at cards, dice and other games."},
-		"lockpick":{"formula":"Base: 10% + (PE + AG)","info":"The skill of opening locks without the proper key. The use of lockpicks or electronic lockpicks will greatly enhance this skill."},
-		"medicine":{"formula":"Base: 5% + (PE + IN)","info":"The healing of major wounds and crippled limbs. Without this skill, it will take a much longer period of time to restore crippled limbs to use."},
-		"meleeWeapons":{"formula":"Base: 20% + (2 x (AG + ST))","info":"Using non-ranged weapons in hand-to- hand, or melee combat- knives, sledgehammers, spears, clubs and so on."},
-		"repair":{"formula":"Base: 0% + (3 x IN)","info":"The practical application of the Science skill for fixing broken equipment, machinery and electronics."},
-		"science":{"formula":"Base: 0% + (4 x IN)","info":"Covers a variety of high technology skills, such as computers, biology, physics and geology."},
-		"smallGuns":{"formula":"Base: 5% + (4 x AG)","info":"The use, care and general knowledge of small firearms pistols, SMGs and rifles."},
-		"sneak":{"formula":"Base: 5% + (3 x AG)","info":"Quiet movement, and the ability to remain unnoticed. If successful, you will be much harder to locate. You cannot run and sneak at the same time."},
-		"speech":{"formula":"Base: 0% + (5 x CH)","info":"The ability to communicate in a practical and efficient manner. The skill of convincing others that your position is correct. The ability to lie and not get caught."},
-		"survival":{"formula":"Base: 0% + (2 x (EN + IN))","info":"Practical knowledge of the outdoors, and the ability to live off the land. The knowledge of plants and animals."},
-		"throwing":{"formula":"Base: 0% + (4 x AG)","info":"The skill of muscle- propelled ranged weapons, such as throwing knives, spears and grenades."},
-		"traps":{"formula":"Base: 10% + (PE + AG)","info":"The finding and removal of traps. Also the setting of explosives for demolition purposes."},
-		"unarmed":{"formula":"Base: 20 + (2 x (AG + ST))","info":"A combination of martial arts, boxing and other hand-to- hand martial arts. Combat with your hands and feet."}
+		"barter":{"formula":"Base:<br>0% + (4 x CH)", "info":"Trading and trade- related tasks. The ability to get better prices for items you sell, and lower prices for items you buy."},
+		"bigGuns":{"formula":"Base:<br>0% + (2 x AG)", "info":"The operation and maintenance of really big guns miniguns, rocket launchers, flamethrowers and such."},
+		"energyWeapons":{"formula":"Base:<br>0% + (2 x AG)", "info":"The care and feeding. of energy-based weapons. How to arm and operate weapons that use laser or plasma technology."},
+		"gambling":{"formula":"Base:<br>10% + ((2 x CH) + (2 x LK))", "info":"The knowledge and practical skills related to wagering. The skill at cards, dice and other games."},
+		"lockpick":{"formula":"Base:<br>10% + (PE + AG)","info":"The skill of opening locks without the proper key. The use of lockpicks or electronic lockpicks will greatly enhance this skill."},
+		"medicine":{"formula":"Base:<br>5% + (PE + IN)","info":"The healing of major wounds and crippled limbs. Without this skill, it will take a much longer period of time to restore crippled limbs to use."},
+		"meleeWeapons":{"formula":"Base:<br>20% + (2 x (AG + ST))","info":"Using non-ranged weapons in hand-to- hand, or melee combat- knives, sledgehammers, spears, clubs and so on."},
+		"repair":{"formula":"Base:<br>0% + (3 x IN)","info":"The practical application of the Science skill for fixing broken equipment, machinery and electronics."},
+		"science":{"formula":"Base:<br>0% + (4 x IN)","info":"Covers a variety of high technology skills, such as computers, biology, physics and geology."},
+		"smallGuns":{"formula":"Base:<br>5% + (4 x AG)","info":"The use, care and general knowledge of small firearms pistols, SMGs and rifles."},
+		"sneak":{"formula":"Base:<br>5% + (3 x AG)","info":"Quiet movement, and the ability to remain unnoticed. If successful, you will be much harder to locate. You cannot run and sneak at the same time."},
+		"speech":{"formula":"Base:<br>0% + (5 x CH)","info":"The ability to communicate in a practical and efficient manner. The skill of convincing others that your position is correct. The ability to lie and not get caught."},
+		"survival":{"formula":"Base:<br>0% + (2 x (EN + IN))","info":"Practical knowledge of the outdoors, and the ability to live off the land. The knowledge of plants and animals."},
+		"throwing":{"formula":"Base:<br>0% + (4 x AG)","info":"The skill of muscle- propelled ranged weapons, such as throwing knives, spears and grenades."},
+		"traps":{"formula":"Base:<br>10% + (PE + AG)","info":"The finding and removal of traps. Also the setting of explosives for demolition purposes."},
+		"unarmed":{"formula":"Base:<br>20 + (2 x (AG + ST))","info":"A combination of martial arts, boxing and other hand-to- hand martial arts. Combat with your hands and feet."}
 	},
 
 	"traits": {

@@ -1,6 +1,6 @@
-import * as Sp from './special_node.js'
 import * as Sk from './skill_node.js'
 import * as Stat from './secondaryStatistics_node.js'
+import {traitDict} from './special_node.js';
 
 //HTML/CSS Objects
 export const __trait1 = {label: document.querySelector("[data-reference=\"trait1\"]").querySelector(".trait-label"), button: document.querySelector("[data-reference=\"trait1\"]").querySelector(".trait-button")};
@@ -14,66 +14,63 @@ export const __trait8 = {label: document.querySelector("[data-reference=\"trait8
 
 const __traitPageValue = document.querySelector(".traits-value")
 
+//non-Combat
+
 //Combat
 let traitPage = 1;
 
-export let bruiser = false;	export let fastShot = false; export let finesse = false;
-export let hvyHanded = false; export let jinxed = false; export let kamikaze = false;
-export let oneHander = false; export let hotBlooded = false; 
 
-export let builtToDestroy = false; export let triggerDiscipline = false;
-export let hotBloodedCheck = false;
-
-//non-Combat
-export let chemReliant = false;	export let chemResistant = false; export let fastMetabolism = false;
-export let gifted = false; export let goodNatured = false; 
-
-export let nightPerson = false; export let skilled = false;	
-export let smallFrame = false; export let techWizard = false;
-export let techWizardCheck = false;
-
-//Only Human
-export let sexAppeal = false;	
-
-//Mutants
-let hamFisted = false; let hamFistedCheck = false; let vatSkin = false;
-
-//Dog's - Deathclaw's
-let domesticated = false; let rabid = false;
-
-//Ghouls
-let glowingOne = false; let fearTheReaper = false;
 
 export function traitPageUpdate(){
+    let traits = Object.keys(traitDict)
+    console.log(traits);
+    let i;
     if(traitPage == 1){
-        __trait1.label.textContent = "Bruiser";
-        __trait2.label.textContent = "Fast Shot";
-        __trait3.label.textContent = "Finesse";
-        __trait4.label.textContent = "Heavy Handed";
-        __trait5.label.textContent = "Jinxed";
-        __trait6.label.textContent = "Kamikaze";
-        __trait7.label.textContent = "One Hander";
-        __trait8.label.textContent = "Hot Blooded";
+        i = 0;
+        __trait1.label.textContent = traitDict[traits[i]].name;
+        __trait2.label.textContent = traitDict[traits[i+1]].name;
+        __trait3.label.textContent = traitDict[traits[i+2]].name;
+        __trait4.label.textContent = traitDict[traits[i+3]].name;
+        __trait5.label.textContent = traitDict[traits[i+4]].name;
+        __trait6.label.textContent = traitDict[traits[i+5]].name;
+        __trait7.label.textContent = traitDict[traits[i+6]].name;
+        __trait8.label.textContent = traitDict[traits[i+7]].name;
     }
     else if(traitPage == 2){
-        __trait1.label.textContent = "Built To Destroy";
-        __trait2.label.textContent = "Trigger Discipline";
-        __trait3.label.textContent = "Chem Reliant";
-        __trait4.label.textContent = "Chem Resistant";
-        __trait5.label.textContent = "Fast Metabolism";
-        __trait6.label.textContent = "Gifted";
-        __trait7.label.textContent = "Good Natured";
-        __trait8.label.textContent = "Night Person";
+        i = 7;
+        __trait1.label.textContent = traitDict[traits[i]].name;
+        __trait2.label.textContent = traitDict[traits[i+1]].name;
+        __trait3.label.textContent = traitDict[traits[i+2]].name;
+        __trait4.label.textContent = traitDict[traits[i+3]].name;
+        __trait5.label.textContent = traitDict[traits[i+4]].name;
+        __trait6.label.textContent = traitDict[traits[i+5]].name;
+        __trait7.label.textContent = traitDict[traits[i+6]].name;
+        __trait8.label.textContent = traitDict[traits[i+7]].name;
     }
     else if(traitPage == 3){
-        __trait1.label.textContent = "Skilled";
-        __trait2.label.textContent = "Small Frame";
-        __trait3.label.textContent = "Tech Wizard";
-        __trait4.label.textContent = "Sex Appeal";
-        __trait5.label.textContent = " ";
-        __trait6.label.textContent = " ";
-        __trait7.label.textContent = " ";
-        __trait8.label.textContent = " ";
+        i = 14;
+        __trait1.label.textContent = traitDict[traits[i]].name;
+        try{__trait2.label.textContent = traitDict[traits[i+1]].name}catch (Exception){
+            __trait2.label.textContent = "";
+        };
+        try{__trait3.label.textContent = traitDict[traits[i+2]].name}catch (Exception){
+            __trait3.label.textContent = "";
+        };
+        try{__trait4.label.textContent = traitDict[traits[i+3]].name}catch (Exception){
+            __trait4.label.textContent = "";
+        };
+        try{__trait5.label.textContent = traitDict[traits[i+4]].name}catch (Exception){
+            __trait5.label.textContent = "";
+        };
+        try{__trait6.label.textContent = traitDict[traits[i+5]].name}catch (Exception){
+            __trait6.label.textContent = "";
+        };
+        try{__trait7.label.textContent = traitDict[traits[i+6]].name}catch (Exception){
+            __trait7.label.textContent = "";
+        };
+        try{__trait8.label.textContent = traitDict[traits[i+7]].name}catch (Exception){
+            __trait8.label.textContent = "";
+        };
     }
 }
 
