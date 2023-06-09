@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fallout Tools</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <div id="program">
+        <div class="tool-box" id="special_modifier_box">
+            <div class="background-color">
+                
+            </div>
+            <div id="normal_special">
+                <h3>Normal Special</h3>
+                <label>Special Attribute: </label><input type="text" class="attribute" placeholder="Strength, or S" size="10">
+                <label>Special Value: </label><input type="number" class="value" placeholder="5" max="20" min="0">
+            </div>
+            <div id="special_debuff">
+                <h3>Debuffs/Buffs</h3>
+                <label>Value: </label>
+                <div class="buttons"><input type="number" class="debuff" placeholder="-1" max="20" min="-20" value="0">
+                <button class="increase"><img src="images/add_button_up.png" alt="/\"></button><button class="decrease"><img src="images/sub_button_up.png" alt="\/"></button></div>
+                <div id="debuffed_skills">
+                    <h3>Skills</h3>
+                </div>
+                <div id="debuffed_stats">
+                    <h3>Statistics</h3>
+                </div>
+            </div>
+        </div>
+        <div class="tool-box" id="special_modifier_box">
+            
+        </div>
+    </div>
+    
+</body>
+</html>
