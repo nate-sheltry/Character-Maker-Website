@@ -15,7 +15,7 @@ const options = {
 const apiLink = 'https://nate-sheltry.github.io/FalloutDatabase/index-critter-data.json'
 const dataIndex = await fetch(apiLink).then((res) => {return res.json()});
 
-function populateList(){
+async function populateList(){
     dataItems = Object.keys(dataIndex).map(key => {
         const resultCard = __critterTemplate.content.cloneNode(true).children[0]
         const head = resultCard.querySelector(".head")
