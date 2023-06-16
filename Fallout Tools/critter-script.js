@@ -102,7 +102,7 @@ __critterResults.querySelectorAll(".critter-result").forEach(child => {
         if(!container[0].isIntersecting){
             return;
         }
-        populateItems(container[0].target);
+        //populateItems(container[0].target);
         containerObserver.unobserve(container[0].target)
     }, options)
     observer.observe(child)
