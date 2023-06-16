@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="critter-info.css">
+    <script type="module" src="critter-script.js"></script>
+</head>
+<body>
+    <main>
+        <div class="search-wrapper">
+            <label for="critter-search">Search Critter Data</label>
+            <input type="search" id="critter-search" data-search>
+        </div>
+        <template data-attribute="critter-template">
+            <section class="critter-result">
+                <h2 class="head">Hero Male</h2>
+                <div class="special-stats">
+                    <h3 class="head">Special</h3>
+                    <div class="special-stat"><span></span><span></span></div>
+                    <div class="special-stat"><span></span><span></span></div>
+                    <div class="special-stat"><span></span><span></span></div>
+                    <div class="special-stat"><span></span><span></span></div>
+                    <div class="special-stat"><span></span><span></span></div>
+                    <div class="special-stat"><span></span><span></span></div>
+                    <div class="special-stat"><span></span><span></span></div>
+                </div>
+                <div class="damage-thresholds">
+                    <h3 class="head">DT|DR</h3>
+                    <div class="damage-threshold"><span></span><span></span></div>
+                    <div class="damage-threshold"><span></span><span></span></div>
+                    <div class="damage-threshold"><span></span><span></span></div>
+                    <div class="damage-threshold"><span></span><span></span></div>
+                    <div class="damage-threshold"><span></span><span></span></div>
+                    <div class="damage-threshold"><span></span><span></span></div>
+                    <div class="damage-threshold"><span></span><span></span></div>
+                </div>
+                <div class="secondary-stats">
+                    <h3 class="head">Sec. Stats</h3>
+                    <div class="secondary-stat"><span></span><span></span></div>
+                    <div class="secondary-stat"><span></span><span></span></div>
+                    <div class="secondary-stat"><span></span><span></span></div>
+                    <div class="secondary-stat"><span></span><span></span></div>
+                    <div class="secondary-stat"><span></span><span></span></div>
+                    <div class="secondary-stat"><span></span><span></span></div>
+                </div>
+                <div class="skills">
+                    <h3 class="head">Skills</h3>
+                    <div class="skill"><span></span><span></span></div>
+                    <div class="skill"><span></span><span></span></div>
+                    <div class="skill"><span></span><span></span></div>
+                    <div class="skill"><span></span><span></span></div>
+                    <div class="skill"><span></span><span></span></div>
+                    <div class="skill"><span></span><span></span></div>
+                </div>
+                <div class="gminfo-stats">
+                    <h3 class="head">GM Info</h3>
+                    <div class="gminfo-stat"><span></span><span></span></div>
+                    <div class="gminfo-stat"><span></span><span></span></div>
+                    <div class="gminfo-stat"><span></span><span></span></div>
+                </div>
+                
+            </section>
+        </template>
+        <div id="critter-results">
+        </div>
+    </main>
+</body>
+</html>

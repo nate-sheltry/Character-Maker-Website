@@ -7,6 +7,7 @@ import * as Traits from './modules/traits_node.js';
 
 //import .json
 const result = await fetch('../JSON/desc_Info.json').then((response) => {return response.json()} );
+console.log(result)
 const specialInfo = result.special;
 const skillInfo = result.skills;
 const traitInfo = result.traits;

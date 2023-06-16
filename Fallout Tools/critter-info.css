@@ -1,0 +1,215 @@
+:root {
+    --white:rgb(244, 244, 255);
+    --amber: rgb(255, 204, 122);
+    --amber-background2:rgb(226, 179, 103);
+    --amber-background: rgb(205, 153, 70);
+    --amber-header-background: rgb(127, 91, 33);
+}
+
+.search-wrapper {
+    display:flex;
+    flex-direction:column;
+    gap: .25em;
+}
+
+input {
+    font-size: 1em;
+}
+
+#critter-results {
+    margin-top:1em;
+    height: 700px;
+    overflow:hidden;
+    overflow-y:scroll;
+}
+
+.critter-result {
+    display: flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+    border: 2px solid var(--amber);
+    margin: 1em 0em;
+    background-color: var(--amber-background)
+}
+.head {
+    flex-basis: 95%;
+    gap: 5%;
+    text-align: center;
+    margin: .5em auto .5em auto;
+}
+h2 {
+    background-color:var(--amber-header-background);
+    border: 2px solid var(--amber-header-background);
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px black;
+    color:var(--white);
+}
+h3 {
+    text-shadow: 1px 0px .7px black;
+    font-size: 1.3em;
+    max-height: 24px;
+    margin: 0em;
+    text-decoration:underline;
+}
+.special-stats, .secondary-stats, .gminfo-stats, .damage-thresholds, .skills {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: .05em;
+}
+
+.special-stats {
+    flex-basis: 38%;
+}
+.damage-thresholds {
+    flex-basis: 60%;
+    padding-right: .1em;
+}
+.secondary-stats {
+    flex-basis: 42%;
+}
+.skills {
+    flex-basis: 56%;
+    padding-right: .1em;
+}
+.gminfo-stats {
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+    justify-content:space-around;
+}
+.special-stat, .secondary-stat, .damage-threshold, .skill {
+    font-size: 1.5em;
+    border: 2px solid var(--amber);
+    border-radius: 5px;
+    background:var(--amber-background2);
+    box-shadow: -1px 0px 5px var(--amber);
+    margin: .2em;
+    align-self: center;
+}
+.special-stat {
+    width: 65%;
+}
+.damage-threshold, .skill {
+    width: 100%;
+}
+.secondary-stat {
+    width: 85%;
+}
+.special-stats span, .secondary-stats span, .gminfo-stats span, .damage-thresholds span, .skills span {
+    display: inline-block;
+}
+/**/
+.special-stats span:nth-child(1), .secondary-stats span:nth-child(1), .gminfo-stats span:nth-child(1),
+.damage-thresholds span:nth-child(1), .skills span:nth-child(1) {
+    font-weight:bolder;
+}
+.special-stat span:nth-child(1){
+    text-align: right;
+    width: 40%;
+    margin: .0em .5em 0em 0em;
+}
+.special-stat span:nth-child(2){
+    width: auto;
+    margin: 0em .1em 0em 0em;
+    text-align: left;
+}
+.secondary-stat span:nth-child(1) {
+    text-align: right;
+    width: 45%;
+    font-size: .95em;
+    margin: .0em .2em 0em 0em;
+}
+.secondary-stat span:nth-child(2) {
+    width: 47%;
+    margin: 0em .1em 0em 0em;
+    text-align: left;
+}
+.damage-threshold span:nth-child(1) {
+    text-align: right;
+    width: 42%;
+    font-size: .8em;
+    margin: .0em 0em 0em -.1em;
+}
+.damage-threshold span:nth-child(2) {
+    text-align: left;
+    width: 56%;
+    margin: .0em 0em 0em 0em;
+}
+.skill span:nth-child(1) {
+    font-size:.8em;
+    width: 70%;
+}
+.skill span:nth-child(2) {
+    width: 21%;
+    margin-right: .2em;
+    text-align:left;
+}
+.gminfo-stats .gminfo-stat span:nth-child(1){
+    font-size:1.3em;
+    text-align: left;
+    width: 68%;
+}
+.gminfo-stats .gminfo-stat span:nth-child(2){
+    font-size:1.5em;
+    text-align: right;
+    width: 27%;
+}
+.gminfo-stats .gminfo-stat:nth-child(2) {
+    width: 32%;
+}
+.gminfo-stats .gminfo-stat:nth-child(2) span:nth-child(1) {
+    width: 35%;
+}
+.gminfo-stats .gminfo-stat:nth-child(2) span:nth-child(2) {
+    width: 65%;
+    text-align: center;
+}
+.gminfo-stats .gminfo-stat:nth-child(3) {
+    width: 62%;
+}
+.gminfo-stats .gminfo-stat:last-child{
+    flex-basis: 97%;
+}
+.gminfo-stat {
+    margin: .1em 0em;
+    border: 2px solid var(--amber);
+    border-radius: 5px;
+    background:var(--amber-background2);
+    box-shadow: -1px 0px 5px var(--amber);
+}
+.hide {
+    display:none;
+}
+
+@media only screen and (min-width: 36.5em){
+    #critter-results {
+        display:flex;
+        flex-direction: row;
+        flex-wrap:wrap;
+        gap: 1%;
+        margin-top:1em;
+        height: min(91vh, 850px);
+        overflow:hidden;
+        overflow-y:scroll;
+    }
+    .critter-result {
+        flex-basis: 48.5%;
+    }
+}
+
+@media only screen and (min-width: 65em){
+    #critter-results {
+        display:flex;
+        flex-direction: row;
+        flex-wrap:wrap;
+        gap: 1%;
+        margin-top:1em;
+        height: min(91vh, 850px);
+        overflow:hidden;
+        overflow-y:scroll;
+    }
+    .critter-result {
+        flex-basis: 32%;
+    }
+}
