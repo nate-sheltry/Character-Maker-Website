@@ -23,6 +23,11 @@ input {
     overflow-y:scroll;
 }
 
+.critter-container {
+    min-height: 800px;
+    min-width: 320px;
+}
+
 .critter-result {
     display: flex;
     flex-direction: row;
@@ -77,6 +82,7 @@ h3 {
     flex-direction:row;
     flex-wrap:wrap;
     justify-content:space-around;
+    flex-basis: 100%;
 }
 .special-stat, .secondary-stat, .damage-threshold, .skill {
     font-size: 1.5em;
