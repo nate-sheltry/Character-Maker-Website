@@ -15,6 +15,12 @@
 input {
     font-size: 1em;
 }
+#button-div {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin: 1em .5em 0em .5em;
+}
 
 #critter-results {
     margin-top:1em;
@@ -23,17 +29,14 @@ input {
     overflow-y:scroll;
 }
 
-.critter-container {
-    min-height: 800px;
-    min-width: 320px;
-}
-
 .critter-result {
     display: flex;
     flex-direction: row;
     flex-wrap:wrap;
+    min-height: 800px;
+    min-width: 320px;
     border: 2px solid var(--amber);
-    margin: 1em 0em;
+    margin: 1em auto;
     background-color: var(--amber-background)
 }
 .head {
