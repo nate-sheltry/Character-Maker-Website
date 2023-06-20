@@ -118,12 +118,6 @@ async function populateItems(container, url = null){
     }
 }
 
-function updateSearchList(array, booleanValue){
-    array.forEach(item => {
-        item.element.classList.toggle('hide', booleanValue);
-    })
-}
-
 __critterSearch.addEventListener('input', e => {
     const value = e.target.value;
     let itemsToUpdate = [];
@@ -132,10 +126,8 @@ __critterSearch.addEventListener('input', e => {
             let item = dataItems[i];
             let name = dataIndex[item.name].name;
             const isVisible = name.toLowerCase().includes(value.toLowerCase())
-            if(!isVisible)
-                itemsToUpdate.push(item)
+            item.element.classList.toggle('hide', !isVisible);
         }
-        updateSearchList(itemsToUpdate, true)
     }
     if(value.length == 0){
         for(let i = 0; i < dataItems.length; i++){
@@ -143,9 +135,8 @@ __critterSearch.addEventListener('input', e => {
             if(item.element.classList.toggle('hide', false)){
                 continue;
             }
-            itemsToUpdate.push(item)
+            item.element.classList.toggle('hide', false);
         }
-        updateSearchList(itemsToUpdate, false)
     }
 })
 
