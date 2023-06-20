@@ -16,7 +16,14 @@ const options = {
 
 //get our critter data from our FalloutDatabase API formate is {name: value, url: value}
 const apiLink = 'https://nate-sheltry.github.io/FalloutDatabase/index-critter-data.json'
-const dataIndex = await fetch(apiLink).then((res) => {return res.json()});
+//Checks if data has already been fetched within the session.
+function getData(){
+    if(sessionStorage.getItem('critterData')){
+        return JSON.parse(sessionStorage.getItem('critterData'))
+    }
+    return fetch(apiLink).then((res) => {return res.json()});
+}
+const dataIndex = await getData();
 const batchData = []
 const otherData = []
 let emptyHTML;
@@ -47,6 +54,7 @@ function populateList(){
         __critterResults.append(resultCard);
         return {name: key, element: resultCard}
     })
+    sessionStorage.setItem('critterData', JSON.stringify(dataIndex))
 }
 
 async function populateItems(container, url = null){
@@ -69,6 +77,9 @@ async function populateItems(container, url = null){
             const resultCard = critterTemplate
             const head = resultCard.querySelector(".head")
             head.textContent = `Name: ${dataIndex[item.name].name}`
+            head.addEventListener('click', e => {
+                window.location.href = 'critter-page.html?critter=' + encodeURIComponent(item.name)
+            })
             const specialStats = resultCard.querySelector(".special-stats").querySelectorAll('.special-stat')
             const secondaryStats = resultCard.querySelector(".secondary-stats").querySelectorAll('.secondary-stat')
             const gmInfo = resultCard.querySelector(".gminfo-stats").querySelectorAll('.gminfo-stat')
@@ -119,17 +130,38 @@ async function populateItems(container, url = null){
 }
 
 __critterSearch.addEventListener('input', e => {
-    const value = e.target.value;
-    let itemsToUpdate = [];
-    if(value.length > 0){
+    const values = {}
+    const value = e.target.value.trim().split(',');
+    for(let i = 0; i < value.length; i++){
+        values[`value${i}`] = value[i].toLowerCase().trim()
+    }
+    console.log(values)
+    if(value[0].length > 0){
+        console.log(values)
         for(let i = 0; i < dataItems.length; i++){
             let item = dataItems[i];
             let name = dataIndex[item.name].name;
-            const isVisible = name.toLowerCase().includes(value.toLowerCase())
+            //Check to see if they have a faction.
+            let faction = dataIndex[item.name].faction;
+            if(faction == undefined)
+                faction = name
+            
+            //Our regular expression base for our search.
+            let regExp = new RegExp(`^`);
+
+            let isVisible = false;
+            for(let b = 0; b < Object.keys(values).length; b++){
+                //'.*' is checking if the combination of characters is present.
+                //'?=' is checking for each value to be in any order, so the values do not need
+                //to be in sequential order.
+                regExp = new RegExp(regExp.source + '(?=.*' + values[`value${b}`] + ')')
+            }
+            if(regExp.test(name.toLowerCase()) || regExp.test(faction.toLowerCase()))
+                isVisible = true;
             item.element.classList.toggle('hide', !isVisible);
         }
     }
-    if(value.length == 0){
+    if(values["value0"].length == 0){
         for(let i = 0; i < dataItems.length; i++){
             let item = dataItems[i];
             if(item.element.classList.toggle('hide', false)){
@@ -200,8 +232,6 @@ document.querySelector("#load-button").addEventListener("click", async function 
     const urls = Object.keys(dataIndex).map(data => {return dataIndex[data].url});
     e.target.removeEventListener('click', buttonHandler)
     await processRequests(urls);
-    //await fetchData(urls)
-    //console.log(batchData)
     let childs = __critterResults.querySelectorAll(".critter-container")
     for(let i = 0; i < childs.length; i++){
         populateItems(childs[i], otherData[i])

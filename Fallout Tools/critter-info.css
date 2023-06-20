@@ -46,13 +46,21 @@ input {
     text-align: center;
     margin: .5em auto .5em auto;
 }
+
 h2 {
     background-color:var(--amber-header-background);
     border: 2px solid var(--amber-header-background);
     border-radius: 10px;
     box-shadow: 0px 0px 10px black;
+    text-shadow: 0px 0px 2px black;
     color:var(--white);
+    transition: transform .15s, text-shadow .075s;
 }
+h2:hover {
+    text-shadow: 2px 1px 1px black;
+    transform:scale(1.025, 1.1)
+}
+
 h3 {
     text-shadow: 1px 0px .7px black;
     font-size: 1.3em;
