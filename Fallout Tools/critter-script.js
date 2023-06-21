@@ -2,17 +2,25 @@
 let dataItems = []
 let load = false;
 
+let listView = false;
+let gridView = true;
+
 const __critterSearch = document.querySelector("#critter-search")
 const __critterTemplate = document.querySelector("[data-attribute=\"critter-template\"]");
 const __critterResults = document.querySelector("#critter-results")
-
-console.log()
 
 const options = {
     root: __critterResults,
     rootMargin: "200%",
     //threshold: 0.1,
 }
+
+__critterResults.addEventListener('mousedown', (e) => {
+    if(e.target.classList.contains('head')){
+        if(e.button === 0)
+            window.open(e.target.getAttribute('link'))
+    }
+})
 
 //get our critter data from our FalloutDatabase API formate is {name: value, url: value}
 const apiLink = 'https://nate-sheltry.github.io/FalloutDatabase/index-critter-data.json'
@@ -36,13 +44,6 @@ async function processRequests(urls){
     }
 }
 
-async function fetchData(urls){
-    await Promise.all(urls.map(url => {
-        return fetch(url).then(response => response.json())
-        .then(data => batchData.push(data)).catch(error => console.error(error));
-    })).then(() => {console.log(batchData)})
-}
-
 function populateList(){
     dataItems = Object.keys(dataIndex).map(key => {
         const resultCard = document.createElement('div')
@@ -55,6 +56,10 @@ function populateList(){
         return {name: key, element: resultCard}
     })
     sessionStorage.setItem('critterData', JSON.stringify(dataIndex))
+}
+
+function openCritter(){
+    window.open('critter-page.html?critter=' + encodeURIComponent(item.name));
 }
 
 async function populateItems(container, url = null){
@@ -77,9 +82,8 @@ async function populateItems(container, url = null){
             const resultCard = critterTemplate
             const head = resultCard.querySelector(".head")
             head.textContent = `Name: ${dataIndex[item.name].name}`
-            head.addEventListener('click', e => {
-                window.location.href = 'critter-page.html?critter=' + encodeURIComponent(item.name)
-            })
+            head.setAttribute('link', 'critter-page.html?critter=' + encodeURIComponent(item.name));
+            
             const specialStats = resultCard.querySelector(".special-stats").querySelectorAll('.special-stat')
             const secondaryStats = resultCard.querySelector(".secondary-stats").querySelectorAll('.secondary-stat')
             const gmInfo = resultCard.querySelector(".gminfo-stats").querySelectorAll('.gminfo-stat')
@@ -124,7 +128,11 @@ async function populateItems(container, url = null){
             //This removes the "loading" text which is essential in checking to see
             //Whether data has been loaded into the container prior.
             container.childNodes[0].textContent = '';
+            item.listhtml = head.outerHTML;
             item.html = container.innerHTML;
+            if(listView){
+                container.innerHTML = item.listhtml
+            }
         }
     }
 }
@@ -135,9 +143,7 @@ __critterSearch.addEventListener('input', e => {
     for(let i = 0; i < value.length; i++){
         values[`value${i}`] = value[i].toLowerCase().trim()
     }
-    console.log(values)
     if(value[0].length > 0){
-        console.log(values)
         for(let i = 0; i < dataItems.length; i++){
             let item = dataItems[i];
             let name = dataIndex[item.name].name;
@@ -170,6 +176,8 @@ __critterSearch.addEventListener('input', e => {
             item.element.classList.toggle('hide', false);
         }
     }
+    __critterResults.scrollTo(0, 0)
+    e.target.focus();
 })
 
 populateList();
@@ -188,7 +196,7 @@ const backgroundObserver = new IntersectionObserver((entries) => {
             //we want to exit out as something has gone wrong! This should never run, but is implemented as a safety measure.
             return
         }
-        if(item.html == undefined){
+        if(item.html == undefined || item.listhtml == undefined){
             //If there is no data stored yet in the dictionary for this item, return!
             return
         }
@@ -200,7 +208,14 @@ const backgroundObserver = new IntersectionObserver((entries) => {
             return
         }
         //This loads the needed display data into the object.
-        container.target.innerHTML = item.html;
+        if(gridView){
+            container.target.classList.toggle('list-item', false)
+            container.target.innerHTML = item.html;
+        }
+        if(listView){
+            container.target.classList.toggle('list-item', true)
+            container.target.innerHTML = item.listhtml;
+        }
     });
 },  {
     //Our options for the observer's sensitivity and what it is watching.
@@ -241,4 +256,24 @@ document.querySelector("#load-button").addEventListener("click", async function 
         backgroundObserver.observe(childs[i])
     }
     e.target.parentNode.removeChild(e.target)
+})
+
+document.querySelector('#grid-button').addEventListener('click', e => {
+    gridView = !gridView;
+    listView = false;
+    dataItems.forEach(item => {
+        item.element.innerHTML = item.html;
+        item.element.classList.toggle('list-item', false)
+    })
+    __critterResults.scrollTo(0, 0)
+})
+
+document.querySelector('#list-button').addEventListener('click', e => {
+    listView = !listView;
+    gridView = false;
+    dataItems.forEach(item => {
+        item.element.innerHTML = item.listhtml;
+        item.element.classList.toggle('list-item', true)
+    })
+    __critterResults.scrollTo(0, 0)
 })

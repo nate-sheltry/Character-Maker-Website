@@ -1,9 +1,15 @@
 :root {
     --white:rgb(244, 244, 255);
-    --amber: rgb(255, 204, 122);
-    --amber-background2:rgb(226, 179, 103);
-    --amber-background: rgb(205, 153, 70);
-    --amber-header-background: rgb(127, 91, 33);
+
+    --amber: rgb(252, 200, 115);
+    --amber-background2:rgb(239, 185, 98);
+    --amber-background: rgb(211, 157, 71);
+    --amber-header-background: rgb(138, 93, 21);
+
+    --list-color: rgb(255, 215, 152);
+    --list-background2:rgb(235, 191, 119);
+    --list-background: rgb(220, 172, 95);
+    --list-header-background: rgb(152, 113, 61);
 }
 
 .search-wrapper {
@@ -18,9 +24,25 @@ input {
 
 #button-div {
     display:flex;
+    flex-wrap:wrap;
+    justify-content:space-around;
+    align-items:center;
+    margin: .75em .5em 0em .5em;
+}
+#button-div div {
+    display:flex;
+    justify-content:center;
+    flex-basis:100%;
+}
+#button-div div button {
+    height: 4em;
+    min-width: 4em;
+    margin: auto;
+}
+main div:nth-child(3){
+    display:flex;
     justify-content:center;
     align-items:center;
-    margin: 1em .5em 0em .5em;
 }
 
 #critter-results {
@@ -55,6 +77,10 @@ h2 {
     text-shadow: 0px 0px 2px black;
     color:var(--white);
     transition: transform .15s, text-shadow .075s;
+}
+h2 a {
+    text-decoration: none;
+    color:var(--white);
 }
 h2:hover {
     text-shadow: 2px 1px 1px black;
@@ -196,6 +222,28 @@ h3 {
     background:var(--amber-background2);
     box-shadow: -1px 0px 5px var(--amber);
 }
+
+.list-item {
+    min-height:4em;
+    max-height:4em;
+    min-width: 50%;
+    max-width: 98%;
+    width: auto;
+    margin: 0em auto;
+    font-size:.8em;
+    padding: 1em 0em;
+}
+.list-item:nth-child(even) {
+    background-color: var(--list-background);
+    border-color:var(--list-color);
+
+}
+.list-item:nth-child(even) h2 {
+    background-color: var(--list-header-background);
+    border-color:var(--list-header-background);
+    color: white;
+}
+
 .hide {
     display:none;
 }
@@ -205,7 +253,6 @@ h3 {
         display:flex;
         flex-direction: row;
         flex-wrap:wrap;
-        gap: 1%;
         margin-top:1em;
         height: min(91vh, 850px);
         overflow:hidden;
