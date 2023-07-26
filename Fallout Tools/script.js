@@ -227,7 +227,7 @@ debuffFields.forEach( field => {
     field.addEventListener('change', retrieveDebuffValue);
 });
 increaseButtons.forEach( button => {
-    button.addEventListener('click', async(e) => {
+    button.addEventListener('pointerdown', async(e) => {
         let target;
         target = e.target;
         if(e.target.tagName == "IMG")
@@ -240,7 +240,7 @@ increaseButtons.forEach( button => {
     });
 });
 decreaseButtons.forEach( button => {
-    button.addEventListener('click', async(e) => {
+    button.addEventListener('pointerdown', async(e) => {
         let target;
         target = e.target;
         if(e.target.tagName == "IMG")

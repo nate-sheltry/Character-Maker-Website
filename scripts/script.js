@@ -129,13 +129,13 @@ function findTarget(e){
 __nameBox.addEventListener("pointerover", hoverEffect);
 __specialWrapper.addEventListener("pointerover", hoverEffect);
 //Special Buttons
-__specialWrapper.addEventListener("click", Sp.handleSubSpecial)
-__specialWrapper.addEventListener("click", Sp.handleAddSpecial)
+__specialWrapper.addEventListener("pointerdown", Sp.handleSubSpecial)
+__specialWrapper.addEventListener("pointerdown", Sp.handleAddSpecial)
 //Skills
 __skillWrapper.addEventListener("pointerover", function(){Sk.hoverEffect(event, __descriptionText,__descriptionTittle, __descriptionFormula, skillInfo, __skillWrapper)});
-__skillWrapper.addEventListener("click", Sk.handleSkillTag)
+__skillWrapper.addEventListener("pointerdown", Sk.handleSkillTag)
 //Traits
-__traitPageButtonAdd.addEventListener("click", () => {Traits.traitPageHandler(event, __traitPageButtonAdd, null)})
-__traitPageButtonSub.addEventListener("click", () => {Traits.traitPageHandler(event, null ,__traitPageButtonSub)})
+__traitPageButtonAdd.addEventListener("pointerdown", () => {Traits.traitPageHandler(event, __traitPageButtonAdd, null)})
+__traitPageButtonSub.addEventListener("pointerdown", () => {Traits.traitPageHandler(event, null ,__traitPageButtonSub)})
 
-Traits.__trait1.button.addEventListener("click", () => {Traits.traitSelect(event);})
+Traits.__trait1.button.addEventListener("pointerdown", () => {Traits.traitSelect(event);})

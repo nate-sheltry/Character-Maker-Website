@@ -243,9 +243,9 @@ __critterResults.querySelectorAll(".critter-result").forEach(child => {
     critterObserver = observer;
 })
 
-document.querySelector("#load-button").addEventListener("click", async function buttonHandler(e) {
+document.querySelector("#load-button").addEventListener("pointerdown", async function buttonHandler(e) {
     const urls = Object.keys(dataIndex).map(data => {return dataIndex[data].url});
-    e.target.removeEventListener('click', buttonHandler)
+    e.target.removeEventListener('pointerdown', buttonHandler)
     await processRequests(urls);
     let childs = __critterResults.querySelectorAll(".critter-container")
     for(let i = 0; i < childs.length; i++){
@@ -258,7 +258,7 @@ document.querySelector("#load-button").addEventListener("click", async function 
     e.target.parentNode.removeChild(e.target)
 })
 
-document.querySelector('#grid-button').addEventListener('click', e => {
+document.querySelector('#grid-button').addEventListener('pointerdown', e => {
     gridView = !gridView;
     listView = false;
     dataItems.forEach(item => {
@@ -268,7 +268,7 @@ document.querySelector('#grid-button').addEventListener('click', e => {
     __critterResults.scrollTo(0, 0)
 })
 
-document.querySelector('#list-button').addEventListener('click', e => {
+document.querySelector('#list-button').addEventListener('pointerdown', e => {
     listView = !listView;
     gridView = false;
     dataItems.forEach(item => {
