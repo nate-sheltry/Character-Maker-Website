@@ -6,7 +6,7 @@ import * as Stat from './modules/secondaryStatistics_node.js';
 import * as Traits from './modules/traits_node.js';
 
 //import .json
-const result = await fetch('../JSON/desc_inf.json').then((response) => {return response.json()} );
+const result = await fetch('./JSON/desc_inf.json').then((response) => {return response.json()} );
 console.log(result)
 const specialInfo = result.special;
 const skillInfo = result.skills;
