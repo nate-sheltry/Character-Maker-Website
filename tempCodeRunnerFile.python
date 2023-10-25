@@ -1,0 +1,28 @@
+
+real_day = 24
+erde_day = 20
+
+real_year = 365
+erde_year = 301
+
+def receive_input():
+
+    while True :
+        try:
+            value = float(input('Enter your age as an integer or float value.'))
+            break
+        except ValueError:
+            print('Please enter a valid integer or float.')
+    
+    return value
+
+def calc_age():
+    value = receive_input()
+    age_in_days = value * real_year
+    age_in_hours = age_in_days * real_day
+    
+    age_in_erde = (age_in_hours/erde_day)/erde_year
+    print(f'You are {age_in_erde:.2f} years old in erde.')
+    
+calc_age()
+        

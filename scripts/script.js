@@ -30,8 +30,8 @@ const __descriptionText = document.querySelector("#description_box").lastElement
 
 const __specialImage = document.querySelector("#img_wrapper").firstChild;
 
-const __traitPageButtonSub = document.querySelector(".traits-button-subtract");
-const __traitPageButtonAdd = document.querySelector(".traits-button-add");
+const __traitPageButtonSub = document.querySelector("#traits-button-subtract");
+const __traitPageButtonAdd = document.querySelector("#traits-button-add");
 
 
 Sk.calculateAllSkills(Sp.SPECIAL.S, Sp.SPECIAL.P, Sp.SPECIAL.E, Sp.SPECIAL.C, Sp.SPECIAL.I, Sp.SPECIAL.A, Sp.SPECIAL.L);
@@ -132,10 +132,10 @@ __specialWrapper.addEventListener("pointerover", hoverEffect);
 __specialWrapper.addEventListener("pointerdown", Sp.handleSubSpecial)
 __specialWrapper.addEventListener("pointerdown", Sp.handleAddSpecial)
 //Skills
-__skillWrapper.addEventListener("pointerover", function(){Sk.hoverEffect(event, __descriptionText,__descriptionTittle, __descriptionFormula, skillInfo, __skillWrapper)});
+__skillWrapper.addEventListener("pointerover", function(e){Sk.hoverEffect(e, __descriptionText,__descriptionTittle, __descriptionFormula, skillInfo, __skillWrapper)});
 __skillWrapper.addEventListener("pointerdown", Sk.handleSkillTag)
 //Traits
-__traitPageButtonAdd.addEventListener("pointerdown", () => {Traits.traitPageHandler(event, __traitPageButtonAdd, null)})
-__traitPageButtonSub.addEventListener("pointerdown", () => {Traits.traitPageHandler(event, null ,__traitPageButtonSub)})
+__traitPageButtonAdd.addEventListener("pointerdown", (e) => {Traits.traitPageHandler(e, __traitPageButtonAdd, null)})
+__traitPageButtonSub.addEventListener("pointerdown", (e) => {Traits.traitPageHandler(e, null ,__traitPageButtonSub)})
 
-Traits.__trait1.button.addEventListener("pointerdown", () => {Traits.traitSelect(event);})
+Traits.traitPageUpdate();

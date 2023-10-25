@@ -2,16 +2,21 @@ import * as Sk from './skill_node.js'
 import * as Stat from './secondaryStatistics_node.js'
 import {Trait, TYPE} from './traitsClass.js';
 
+//colors
+const defaultColor = '#fec726'
+const invalidColor = '#rrrrrr'
+
 //Enums/Trait Types
 
 //Special
 export const SPECIAL = {S: 5, P: 5, E: 5, C: 5, I: 5, A: 5, L: 5}
 export const SPECIAL_MIN = {S: 1, P: 1, E: 1, C: 1, I: 1, A: 1, L: 1}
 export const SPECIAL_MAX = {S: 10, P: 10, E: 10, C: 10, I: 10, A: 10, L: 10}
+export const LEVEL_UP = {POINTS:0}
 
 //Combat Traits
 export const traitDict = {
-bruiser: new Trait('Bruiser', TYPE.SPECIAL, SPECIAL, ['S'], 1, TYPE.STATISTIC, Stat.secStats, ['AP'], -2),
+bruiser: new Trait('Bruiser', TYPE.SPECIAL, SPECIAL, ['S'], 2, TYPE.STATISTIC, Stat.secStats, ['AP'], -2),
 fastShot: new Trait('Fast Shot', TYPE.DESCRIPTION),
 finesse: new Trait('Finesse', TYPE.STATISTIC, Stat.secStats, ['CC'], 10),
 // glowingOne: new Trait('Glowing One', TYPE.STATISTIC, Stat.secStats, ['radResistance'], 50);
@@ -29,7 +34,7 @@ triggerDiscipline: new Trait('Trigger Discipline', TYPE.DESCRIPTION),
 chemReliant: new Trait('Chem Reliant', TYPE.DESCRIPTION),
 chemResistant: new Trait('Chem Resistant', TYPE.DESCRIPTION),
 //domesticated: new Trait('Domesticated', TYPE.SPECIAL, SPECIAL, ['S'], 1, TYPE.STATISTIC, Stat.secStats, ['MD'], -2), //Only Animal
-fastMetabolism: new Trait('Fast Metabolism', TYPE.STATISTIC, Stat.secStats, ['HR'], TYPE.STATISTIC, Stat.secStats, ['radResistance', 'poisResistance'], -100),
+fastMetabolism: new Trait('Fast Metabolism', TYPE.STATISTIC, Stat.secStats, ['HR'], 2, TYPE.STATISTIC, Stat.secStats, ['radResistance', 'poisResistance'], -100),
 //fearTheReaper: new Trait('Fear The Reaper', TYPE.DESCRIPTION), //Only Ghoul
 //No Animal/Robot
 goodNatured: new Trait('Good Natured', TYPE.SKILL, Sk.skills, 
@@ -37,12 +42,12 @@ goodNatured: new Trait('Good Natured', TYPE.SKILL, Sk.skills,
 nightPerson: new Trait('Night Person', TYPE.DESCRIPTION),
 sexAppeal: new Trait('Sex Appeal', TYPE.DESCRIPTION),
 skilled: new Trait('Skilled', TYPE.SKILL, Sk.skills, Object.keys(Sk.skills), 10, TYPE.DESCRIPTION),
-smallFrame: new Trait('Small Frame', TYPE.SPECIAL, SPECIAL, ['A'], 1, TYPE.STATISTIC, Stat.secStats, ['CW'], (15 * SPECIAL.S)),
+smallFrame: new Trait('Small Frame', TYPE.SPECIAL, SPECIAL, ['A'], 1, TYPE.STATISTIC, Stat.secStats, ['CW'], 25 + (15 * SPECIAL.S)),
 techWizard: new Trait('Tech Wizard', TYPE.SPECIAL, SPECIAL, ['P'], -1, TYPE.SKILL, Sk.skills, ['science', 'repair', 'energyWeapons', 'lockpick'], 15)
 }
 
 console.log(traitDict.bruiser);
-traitDict.bruiser.selected = true;
+traitDict.bruiser.selected;
 traitDict.bruiser.applyEffects();
 
 
@@ -68,9 +73,14 @@ export function addSpecial(max, stat, Points){
 		console.log(stat);}
 	return [stat, Points]}
 
+export function calcLevelUpPoints(){
+    LEVEL_UP.POINTS = SPECIAL.I + 5;
+}
 
-
-function displaySpecial(textObject, stat, description){
+export function displaySpecial(textObject, stat, description){
+    let max = SPECIAL_MAX[textObject.parentElement.getAttribute('data-reference')[0]];
+    let min = SPECIAL_MIN[textObject.parentElement.getAttribute('data-reference')[0]];
+    (stat > max || stat < min) ? textObject.classList.toggle('invalid-value', true) : textObject.classList.toggle('invalid-value', false);
     textObject.textContent = stat.toString();
     __specialPointText.textContent = specialPoints.toString();
 

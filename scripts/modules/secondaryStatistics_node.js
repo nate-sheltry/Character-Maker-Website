@@ -18,36 +18,74 @@ const __sqValue = document.querySelector("[data-reference=\"Sequence\"]").queryS
 const __hrValue = document.querySelector("[data-reference=\"Healing Rate\"]").querySelector(".statistic-value");
 const __ccValue = document.querySelector("[data-reference=\"Critical Chance\"]").querySelector(".statistic-value");
 
-
-//strength, endurance, agility, Luck
+//HP
+function hpCalc(){
+	let x = (15 + (Sp.SPECIAL.S + (2 * Sp.SPECIAL.E)));
+	secStats.HP = parseInt(x);
+}
+//AC
+function acCalc(){
+	let x = Sp.SPECIAL.A;
+	secStats.AC = parseInt(x);
+	Sp.traitDict.kamikaze.repeatEffect1();
+	if(secStats.AC < 0){secStats.AC = 0}
+}
+//AP
+function apCalc(){
+	let x = [Math.floor(5 + (Sp.SPECIAL.A / 2))];
+	if(x > 10){x = 10;}
+	secStats.AP =  parseInt(x);
+	Sp.traitDict.bruiser.repeatEffect2();
+	Sp.traitDict.builtToDestroy.repeatEffect1();
+}
+//CW
+function cwCalc(){
+	let x = (25 + (25 * Sp.SPECIAL.S));
+	if(Sp.traitDict.smallFrame.getTagStatus()){
+		x = 25 + (15 * Sp.SPECIAL.S);
+	}
+	secStats.CW = parseInt(x);
+}
+//MD
+function meleeDamage(){
+	let x = (Sp.SPECIAL.S - 5);
+	if (x <= 0){x = 1;}
+	secStats.MD = parseInt(x);
+	Sp.traitDict.heavyHanded.repeatEffect1();
+}
+//SQ
+function sqCalc(){
+	let x = (2 * Sp.SPECIAL.P);
+	secStats.SQ = parseInt(x);
+	Sp.traitDict.kamikaze.repeatEffect2();
+}
 //Healing Rate
 function healingRate(){
-	if(Sp.SPECIAL.E >= 11)
-		return 4;
+	let x;
+	if(Sp.SPECIAL.E >= 11){x = 4;}
 	else if ((Math.floor(Sp.SPECIAL.E / 3)) >= 1)
-		return (Math.floor(Sp.SPECIAL.E / 3));
-	return 1;
+		x = (Math.floor(Sp.SPECIAL.E / 3));
+	else {x = 1;}
+	secStats.HR = parseInt(x); Sp.traitDict.fastMetabolism.repeatEffect1();
 }
-//MD function
-function meleeDamage(){
-	let x = 0;
-	x = (Sp.SPECIAL.S - 5);
-	if (x == 0)
-		x = 1;
-	return x;
+//Crit-Chance
+function ccCalc(){
+	let x = Sp.SPECIAL.L;
+	secStats.CC = parseInt(x);
+	Sp.traitDict.finesse.repeatEffect1();
 }
-//AP function
-function apCalc(){
-	let x = 0;
-	x = [Math.floor(5 + (Sp.SPECIAL.A / 2))];
-	if(x > 10) x = 10;
-	return x;
+//Resistances
+function resistanceCalc(){
+	let x = (2*Sp.SPECIAL.E); secStats.radResistance = parseInt(x);
+	let y = (5*Sp.SPECIAL.E); secStats.poisResistance = parseInt(y);
+	let z = 30; secStats.elecResistance = parseInt(z);
+	Sp.traitDict.fastMetabolism.repeatEffect2();
+
+	if(secStats.radResistance < 0){secStats.radResistance = 0}
+	if(secStats.poisResistance < 0){secStats.poisResistance = 0}
 }
 
-function statTraitCheck(){
-	//run code to check for trait effects
-	
-}
+
 function checkStatistics(){
 	secStats.forEach(stat => {
 		if(stat < 0){stat = 0;}
@@ -55,7 +93,6 @@ function checkStatistics(){
 }
 
 export function setSecondaryStatistics(){
-	statTraitCheck();
 	//checkStatistics();
 	__hpValue.textContent = `${secStats.HP}/${secStats.HP}`;
 	__acValue.textContent = `${secStats.AC}`;
@@ -73,23 +110,22 @@ export function setSecondaryStatistics(){
 
 }
 
+
+
 export function calcAllSecondaryStats(){
 	//Calculate Them
-	secStats.HP = (15 + (Sp.SPECIAL.S + (2 * Sp.SPECIAL.E)));
-	secStats.AC = Sp.SPECIAL.A;
+	hpCalc();
+	acCalc();
 
-	secStats.AP = parseInt(apCalc());
-	secStats.CW = (25 + (25 * Sp.SPECIAL.S));
+	apCalc();
+	cwCalc();
 	
+	meleeDamage();
+	sqCalc();	
 
-	secStats.MD = parseInt(meleeDamage());
-	secStats.SQ = (2 * Sp.SPECIAL.P);	
-
-	secStats.HR = parseInt(healingRate());
-	secStats.CC = Sp.SPECIAL.L;
-	secStats.radResistance = (2*Sp.SPECIAL.E);
-	secStats.poisResistance = (5*Sp.SPECIAL.E);
-	secStats.elecResistance = 30;
+	healingRate();
+	ccCalc();
+	resistanceCalc();
 //	switch(charRace){
 //		case "human":
 //			elecResistance = 30;
@@ -111,23 +147,22 @@ export function calcAllSecondaryStats(){
 
 export function calcStrengthStats(){
 
-	secStats.HP = (15 + (Sp.SPECIAL.S + (2 * Sp.SPECIAL.E)));
-	secStats.CW = (25 + (25 * Sp.SPECIAL.S));
+	hpCalc();
+	cwCalc();
 
-	secStats.MD = parseInt(meleeDamage());
+	meleeDamage();
 }
 
 export function calcEnduranceStats(){
-	secStats.HP = (15 + (Sp.SPECIAL.S + (2 * Sp.SPECIAL.E)));	
+	hpCalc();	
 
-	secStats.HR = parseInt(healingRate());
-	secStats.radResistance = (2*Sp.SPECIAL.E);
-	secStats.poisResistance = (5*Sp.SPECIAL.E);
+	healingRate();
+	resistanceCalc();
 }
 
 export function calcAgilityStats(){
-	secStats.AC = Sp.SPECIAL.A;
-	secStats.AP = parseInt(apCalc());
+	acCalc();
+	apCalc();
 }
-export function calcPerceptionStats() {secStats.SQ = (2 * Sp.SPECIAL.P);	}
-export function calcCritChance() {secStats.CC = Sp.SPECIAL.L; }
+export function calcPerceptionStats() {sqCalc();}
+export function calcCritChance() {ccCalc()}

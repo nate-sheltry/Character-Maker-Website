@@ -155,7 +155,7 @@ h3 {
 }
 .special-stat span:nth-child(2){
     width: auto;
-    margin: 0em .1em 0em 0em;
+    margin: 0em 0em 0em 0em;
     text-align: left;
 }
 .secondary-stat span:nth-child(1) {

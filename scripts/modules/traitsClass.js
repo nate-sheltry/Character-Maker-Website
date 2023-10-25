@@ -1,3 +1,7 @@
+import * as Sp from './special_node.js';
+import * as Stat from './secondaryStatistics_node.js';
+import * as Sk from './skill_node.js';
+
 export const TYPE = Object.freeze({
     SPECIAL: "SPECIAL",
     DESCRIPTION: "DESCRIPTION",
@@ -7,6 +11,7 @@ export const TYPE = Object.freeze({
 
 export class Trait{
     //Key parameters/arguments should always be an array to account for the various traits.
+    //trait(name, 2x(type[special/skill/stat], array, index, value_modifier), selected = is it in effect or no?)
     constructor(name, type1, stat1 = null, key1  = null, effect1  = null, type2 = null, stat2 = null, key2 = null, effect2 = null, selected = undefined,){
         this.name = name;
         this.type1 = type1;
@@ -24,21 +29,24 @@ export class Trait{
 
     }
     applyEffects(){
-        if(this.type1 != null && this.selected == true){
+        if((this.type1 != null && this.type1 != TYPE.DESCRIPTION) && this.selected == true){
             this.runEffect('type1', 'stat1', this.key1, this.effect1)
         }
-        else if(this.type1 != null && this.selected == false){
+        else if((this.type1 != null && this.type1 != TYPE.DESCRIPTION) && this.selected == false){
             this.disableEffect('type1', 'stat1', this.key1, this.effect1)
         }
-        if(this.type2 != null && this.selected == true){
+        if((this.type2 != null && this.type2 != TYPE.DESCRIPTION) && this.selected == true){
             this.runEffect('type2', 'stat2', this.key2, this.effect2)
         }
-        else if(this.type2 != null && this.selected == false){
+        else if((this.type2 != null && this.type2 != TYPE.DESCRIPTION) && this.selected == false){
             this.disableEffect('type2', 'stat2', this.key2, this.effect2)
         }
+        
     }
     repeatEffect(type, stat, keys, effect){
-        if(this[type])
+        if(this.selected != true){
+            return
+        }
         keys.forEach(key => {
             if(!this[stat].hasOwnProperty(key)){
                 return;
@@ -46,25 +54,34 @@ export class Trait{
             //This isn't a repeat effect
             if(key == 'tagged')
                 return;
+            this[stat][key] += effect;
         })
-        if(this.selected != true)
-            return;
-        if(this.name == 'Small Frame'){
-            switch(this[type]){
-                case TYPE.STATISTIC:
-                    this[stat][key] = effect;
-                    break;
-            }
-
+    }
+    repeatEffect1(){
+        this.repeatEffect('type1', 'stat1', this.key1, this.effect1)
+    }
+    repeatEffect2(){
+        this.repeatEffect('type2', 'stat2', this.key2, this.effect2)
+    }
+    determineSpecialStat(key){
+        let value;
+        switch(key){
+            case 'S':
+                value = "Strength";  break;
+            case 'P':
+                value = "Perception";  break;
+            case 'E':
+                value = "Endurance";  break;
+            case 'C':
+                value = "Charisma";  break;
+            case 'I':
+                value = "Intelligence";  break;
+            case 'A':
+                value = "Agility";  break;
+            case 'L':
+                value = "Luck";  break;
         }
-        switch(this[type]){
-            case TYPE.STATISTIC:
-                this[stat][key] += effect;
-                break;
-            case TYPE.SKILL:
-                this[stat][key] += effect;
-                break;
-        }
+        return value;
     }
     runEffect(type, stat, keys, effect){
         console.log(this[type]);
@@ -72,34 +89,42 @@ export class Trait{
         console.log(keys);
         console.log(effect)
         keys.forEach(key => {
-            console.log(this[stat][key]+= 2)
-        })
-        keys.forEach(key => {
-            if(!this[stat].hasOwnProperty(key)){
+            if(!this[stat].hasOwnProperty(key))
                 return;
-            }
-        })
-        switch(this[type]){
-            case TYPE.STATISTIC:
-                return;
-            case TYPE.DESCRIPTION:
-                return;
-            case TYPE.SPECIAL:
-                keys.forEach(key => {
+            
+            switch(this[type]){
+                case TYPE.STATISTIC:
+                    if(key == 'CW') this[stat][key] = effect;
+                    else{
+                        this[stat][key] += effect;
+                        if(this[stat][key] < 0){this[stat][key] = 0}
+                    }
+                    Stat.setSecondaryStatistics();
+                    return;
+                case TYPE.DESCRIPTION:
+                    return;
+                case TYPE.SPECIAL:
+                    let dataReference = this.determineSpecialStat(key);
+                    let textObject = document.querySelector(`[data-reference="${dataReference}"]`).querySelector('.special-value');
+                    console.log(this[stat][key])
                     this[stat][key] += effect;
+                    Sp.SPECIAL_MIN[key] += effect;
+                    Sp.displaySpecial(textObject, this[stat][key]);
                     console.log()
-                });
-                break;
-            case TYPE.SKILL:
-                keys.forEach(key => {
+                    break;
+                case TYPE.SKILL:
                     if(key == 'tagged'){
                         this[stat][key] = effect;
                         return;
                     }
-                });
-                break;
+                    else{
+                        this[stat][key] += effect;
+                        Sk.skillValues();
+                    }
+                    break;
 
-        }
+            }
+        })
     }
     disableEffect(type, stat, keys, effect){
         keys.forEach(key => {
@@ -114,7 +139,11 @@ export class Trait{
                 return;
             case TYPE.SPECIAL:
                 keys.forEach(key => {
+                    let dataReference = this.determineSpecialStat(key);
+                    let textObject = document.querySelector(`[data-reference="${dataReference}"]`).querySelector('.special-value');
                     this[stat][key] -= effect;
+                    Sp.SPECIAL_MIN[key] = 1;
+                    Sp.displaySpecial(textObject, this[stat][key]);
                 });
                 break;
             case TYPE.SKILL:

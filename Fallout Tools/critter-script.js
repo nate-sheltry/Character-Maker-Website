@@ -11,7 +11,7 @@ const __critterResults = document.querySelector("#critter-results")
 
 const options = {
     root: __critterResults,
-    rootMargin: "200%",
+    rootMargin: "400%",
     //threshold: 0.1,
 }
 

@@ -22,7 +22,7 @@ const __throwingValue = document.querySelector("[data-reference=\"Throwing\"]").
 const __trapsValue = document.querySelector("[data-reference=\"Traps\"]").querySelector(".skill-value");
 const __unarmedValue = document.querySelector("[data-reference=\"Unarmed\"]").querySelector(".skill-value");
 
-const tagBonus = 20;
+const tagBonus = 15;
 
 let tagPoints = 3;
 
@@ -181,7 +181,7 @@ export function hoverEffect(e, textBox, tittleBox, formulaBox, info, __skillWrap
 }
 
 
-function tagSkill(object, skill){
+function tagBtn(object, skill){
     if(skill.tagged == false && tagPoints > 0){skill.tagged = true;
         tagPoints -= 1;
         object.style.backgroundImage = "url(\"../../images/tag_btn_down.png\")";
@@ -205,22 +205,22 @@ export function handleSkillTag(e) {
             return;
     }
     switch(__target.parentElement.dataset.reference){
-        case "Barter": tagSkill(__target, barter); break;
-        case "Big Guns": tagSkill(__target, bigGuns); break;
-        case "Energy Weapons": tagSkill(__target, energyWeapons); break;
-        case "Gambling": tagSkill(__target, gambling); break;
-        case "Lockpick": tagSkill(__target, lockpick); break;
-        case "Medicine": tagSkill(__target, medicine); break;
-        case "Melee Weapons": tagSkill(__target, meleeWeapons); break;
-        case "Repair": tagSkill(__target, repair); break;
-        case "Science": tagSkill(__target, science); break;
-        case "Small Guns": tagSkill(__target, smallGuns); break;
-        case "Sneak": tagSkill(__target, sneak); break;
-        case "Speech": tagSkill(__target, speech); break;
-        case "Survival": tagSkill(__target, survival); break;
-        case "Throwing": tagSkill(__target, throwing); break;
-        case "Traps": tagSkill(__target, traps); break;
-        case "Unarmed": tagSkill(__target, unarmed); break;
+        case "Barter": tagBtn(__target, barter); break;
+        case "Big Guns": tagBtn(__target, bigGuns); break;
+        case "Energy Weapons": tagBtn(__target, energyWeapons); break;
+        case "Gambling": tagBtn(__target, gambling); break;
+        case "Lockpick": tagBtn(__target, lockpick); break;
+        case "Medicine": tagBtn(__target, medicine); break;
+        case "Melee Weapons": tagBtn(__target, meleeWeapons); break;
+        case "Repair": tagBtn(__target, repair); break;
+        case "Science": tagBtn(__target, science); break;
+        case "Small Guns": tagBtn(__target, smallGuns); break;
+        case "Sneak": tagBtn(__target, sneak); break;
+        case "Speech": tagBtn(__target, speech); break;
+        case "Survival": tagBtn(__target, survival); break;
+        case "Throwing": tagBtn(__target, throwing); break;
+        case "Traps": tagBtn(__target, traps); break;
+        case "Unarmed": tagBtn(__target, unarmed); break;
     }
     skillValues();
 }
