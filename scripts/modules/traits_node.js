@@ -22,13 +22,13 @@ function tagBtn(object, trait){
         trait.tag()
         traitPoints -= 1;
         trait.applyEffects()
-        object.style.backgroundImage = "url(\"images/tag_btn_down.png\")";
+        object.style.backgroundImage = `url("images/tag_btn_down.png")`;
         object.firstChild.style.visibility = "visible";}
     else if(selected == true){
         trait.tag()
         traitPoints += 1;
         trait.applyEffects()
-        object.style.backgroundImage = "url(\"images/tag_btn.png\")";
+        object.style.backgroundImage = `url("images/tag_btn.png")`;
         object.firstChild.style.visibility = "hidden";}
 }
 
