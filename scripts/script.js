@@ -68,7 +68,7 @@ function hoverEffect(e){
         gender = "female";
     }
     if(e.target.parentElement == __nameBox){
-        specialImage = "/images/"+ gender +"/amber/special-hover-name.png";
+        specialImage = "images/"+ gender +"/amber/special-hover-name.png";
     }
     let data_reference;
     if(e.target.classList.contains(__specialHover))
