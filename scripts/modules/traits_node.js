@@ -22,13 +22,13 @@ function tagBtn(object, trait){
         trait.tag()
         traitPoints -= 1;
         trait.applyEffects()
-        object.style.backgroundImage = "url(\"../images/tag_btn_down.png\")";
+        object.style.backgroundImage = "url(\"images/tag_btn_down.png\")";
         object.firstChild.style.visibility = "visible";}
     else if(selected == true){
         trait.tag()
         traitPoints += 1;
         trait.applyEffects()
-        object.style.backgroundImage = "url(\"../images/tag_btn.png\")";
+        object.style.backgroundImage = "url(\"images/tag_btn.png\")";
         object.firstChild.style.visibility = "hidden";}
 }
 
@@ -48,8 +48,8 @@ let traitPage = 1;
 
 function changeTraitDisplay(object){
     (object.trait.selected != true) ?
-        (object.button.style.backgroundImage = "url(\"../images/tag_btn.png\")", object.button.firstChild.style.visibility = "hidden"):
-        (object.button.style.backgroundImage = "url(\"../images/tag_btn_down.png\")", object.button.firstChild.style.visibility = "visible");
+        (object.button.style.backgroundImage = "url(\"images/tag_btn.png\")", object.button.firstChild.style.visibility = "hidden"):
+        (object.button.style.backgroundImage = "url(\"images/tag_btn_down.png\")", object.button.firstChild.style.visibility = "visible");
 }
 function displayTrait(element, object, traits, i){
     element.label.textContent = traitDict[traits[i]] ? (object.style.visibility = 'visible',
