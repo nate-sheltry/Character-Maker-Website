@@ -184,11 +184,11 @@ export function hoverEffect(e, textBox, tittleBox, formulaBox, info, __skillWrap
 function tagBtn(object, skill){
     if(skill.tagged == false && tagPoints > 0){skill.tagged = true;
         tagPoints -= 1;
-        object.style.backgroundImage = "url(\"../../images/tag_btn_down.png\")";
+        object.style.backgroundImage = "url(\"images/tag_btn_down.png\")";
         object.firstChild.style.visibility = "visible";}
     else if(skill.tagged == true){skill.tagged = false;
         tagPoints += 1;
-        object.style.backgroundImage = "url(\"../../images/tag_btn.png\")";
+        object.style.backgroundImage = "url(\"images/tag_btn.png\")";
         object.firstChild.style.visibility = "hidden";}
 }
 
