@@ -1,9 +1,8 @@
 :root {
-    --domain-name: "/Fallout-Character-Maker-Website";
-    --special-image: url(var(--domain-name)"/images/male/amber/special-hover-name.png");
-    --special-right-img: url(var(--domain-name)"/images/right-arrow-orange-btn.png");
-    --special-left-img: url(var(--domain-name)"/images/left-arrow-orange-btn.png");
-    --skill-button: url(var(--domain-name)"/images/tag_btn.png");
+    --special-image: url("../images/male/amber/special-hover-name.png");
+    --special-right-img: url("../images/right-arrow-orange-btn.png");
+    --special-left-img: url("../images/left-arrow-orange-btn.png");
+    --skill-button: url("../images/tag_btn.png");
     --special-stat: "5";
     --special-points: "5";
     --hover-color: #fec726;
