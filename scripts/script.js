@@ -77,37 +77,37 @@ function hoverEffect(e){
         data_reference = e.target.parentElement.dataset.reference
         switch(data_reference){
             case "Strength":
-                specialImage = "/images/"+ gender +"/amber/special-hover-str.png";
+                specialImage = "images/"+ gender +"/amber/special-hover-str.png";
                 __descriptionText.textContent = specialInfo.strength;
                 __descriptionTittle.textContent = data_reference
                 break;
             case "Perception":
-                specialImage = "/images/"+ gender +"/amber/special-hover-per.png";
+                specialImage = "images/"+ gender +"/amber/special-hover-per.png";
                 __descriptionText.textContent = specialInfo.perception;
                 __descriptionTittle.textContent = data_reference
                 break;
             case "Endurance":
-                specialImage = "/images/"+ gender +"/amber/special-hover-end.png";
+                specialImage = "images/"+ gender +"/amber/special-hover-end.png";
                 __descriptionText.textContent = specialInfo.endurance;
                 __descriptionTittle.textContent = data_reference
                 break;
             case "Charisma":
-                specialImage = "/images/"+ gender +"/amber/special-hover-cha.png";
+                specialImage = "images/"+ gender +"/amber/special-hover-cha.png";
                 __descriptionText.textContent = specialInfo.charisma;
                 __descriptionTittle.textContent = data_reference
                 break;
             case "Intelligence":
-                specialImage = "/images/"+ gender +"/amber/special-hover-int.png";
+                specialImage = "images/"+ gender +"/amber/special-hover-int.png";
                 __descriptionText.textContent = specialInfo.intelligence;
                 __descriptionTittle.textContent = data_reference
                 break;
             case "Agility":
-                specialImage = "/images/"+ gender +"/amber/special-hover-agi.png";
+                specialImage = "images/"+ gender +"/amber/special-hover-agi.png";
                 __descriptionText.textContent = specialInfo.agility;
                 __descriptionTittle.textContent = data_reference
                 break;
             case "Luck":
-                specialImage = "/images/"+ gender +"/amber/special-hover-lck.png";
+                specialImage = "images/"+ gender +"/amber/special-hover-lck.png";
                 __descriptionText.textContent = specialInfo.luck;
                 __descriptionTittle.textContent = data_reference
                 break;
