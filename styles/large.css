@@ -307,6 +307,7 @@ body {
     grid-row: 2;
     grid-column: 2;
     display: grid;
+    grid-template-rows:12% auto;
     grid-template-columns: 2fr;
     width: 280px;
     padding: 10px;
@@ -371,12 +372,12 @@ body {
     grid-template-columns: 1.6fr .5fr;
     grid-template-rows: 1;
     font-family: Calibri;
-    font-size: 22px;
+    font-size: 20px;
     padding-top: .24em;
     padding: 5px;
     padding-bottom: .24em;
     color: var(--hover-color);
-    text-shadow: .5px 0px 0px var(--special-color);
+    text-shadow: .5px 0px 0px var(--special-color), -.5px 0px .5px var(--special-color);
 }
 .trait-button {
     background-image: url("../images/tag_btn.png");

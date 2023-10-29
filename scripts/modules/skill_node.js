@@ -1,4 +1,8 @@
-
+export const SkilledMod = {value:0};
+export const GiftedMod = {value:0};
+export const TechWizBonus = {value:0};
+export const GoodNatureBonus = {value:0};
+export const GoodNatureNeg = {value:0};
 
 //We are using skill-tag, because the button div class is "skill-tag-btn", and the img class is "skill-tagged"
 //So using contains("skill-tag") will run regardless of which element is the source of the event.
@@ -49,78 +53,79 @@ export const skills = {barter:barter, bigGuns:bigGuns, energyWeapons:energyWeapo
                        repair:repair, science:science, smallGuns:smallGuns, sneak:sneak, speech:speech, survival:survival, throwing:throwing, traps:traps, unarmed:unarmed}
 
 export function calculateAllSkills(Str, Per, End, Cha, Int, Agi, Lck){
-    barter.value = (4 * Cha);
-    bigGuns.value = (2 * Agi);
-    energyWeapons.value = (2 * Agi);
-    gambling.value = (10 + (2 * Cha) + (2 * Lck));
-    lockpick.value = (10 + (Per + Agi));
-    medicine.value = (5 + Per + Int);
-    meleeWeapons.value = (20 + (2 *(Agi + Str)));
-    repair.value = (3 * Int);
-    science.value = (4 * Int);
-    smallGuns.value = (5 + (4 * Agi));
-    sneak.value = (5 + (3 * Agi));
-    speech.value = (5 * Cha);
-    survival.value = (2 * (End + Int));
-    throwing.value = (4 * Agi);
-    traps.value = (10 + Per + Agi);
-    unarmed.value = (30 + (2 * (Agi + Str)));
+    barter.value = (4 * Cha) + SkilledMod.value + GoodNatureBonus.value;
+    bigGuns.value = (2 * Agi) + SkilledMod.value + GoodNatureNeg.value;
+    energyWeapons.value = (2 * Agi) + SkilledMod.value + TechWizBonus.value + GoodNatureNeg.value;
+    gambling.value = (10 + (2 * Cha) + (2 * Lck)) + SkilledMod.value;
+    lockpick.value = (10 + (Per + Agi)) + SkilledMod.value + TechWizBonus.value;
+    medicine.value = (5 + Per + Int) + SkilledMod.value + GoodNatureBonus.value;
+    meleeWeapons.value = (20 + (2 *(Agi + Str))) + SkilledMod.value + GoodNatureNeg.value;
+    repair.value = (3 * Int) + SkilledMod.value + TechWizBonus.value + GoodNatureBonus.value;
+    science.value = (4 * Int) + SkilledMod.value + TechWizBonus.value + GoodNatureBonus.value;
+    smallGuns.value = (5 + (4 * Agi)) + SkilledMod.value + GoodNatureNeg.value;
+    sneak.value = (5 + (3 * Agi)) + SkilledMod.value;
+    speech.value = (5 * Cha) + SkilledMod.value + GoodNatureBonus.value;
+    survival.value = (2 * (End + Int)) + SkilledMod.value;
+    throwing.value = (4 * Agi) + SkilledMod.value;
+    traps.value = (10 + Per + Agi) + SkilledMod.value;
+    unarmed.value = (30 + (2 * (Agi + Str))) + SkilledMod.value + GoodNatureNeg.value;
+
+    skillValues();
 }
 
 export function calculateStrengthSkills(Str, Agi){
-    meleeWeapons.value = (20 + (2 *(Agi + Str)));
-    unarmed.value = (30 + (2 * (Agi + Str)));
+    meleeWeapons.value = (20 + (2 *(Agi + Str))) + SkilledMod.value + GoodNatureNeg.value;
+    unarmed.value = (30 + (2 * (Agi + Str))) + SkilledMod.value + GoodNatureNeg.value;
     skillValues();
 }
 
 export function calculatePerceptionSkills(Per, Int, Agi){
-    lockpick.value = (10 + (Per + Agi));
-    medicine.value = (5 + Per + Int);
-    traps.value = (10 + Per + Agi);
+    lockpick.value = (10 + (Per + Agi)) + SkilledMod.value + TechWizBonus.value;
+    medicine.value = (5 + Per + Int) + SkilledMod.value + GoodNatureBonus.value;
+    traps.value = (10 + Per + Agi) + SkilledMod.value;
     skillValues();
 }
 
 export function calculateEnduranceSkills(End, Int){
-    survival.value = (2 * (End + Int));
+    survival.value = (2 * (End + Int)) + SkilledMod.value;
     skillValues();
 }
 
 export function calculateCharismaSkills(Cha, Lck){
-    barter.value = (4 * Cha);
-    gambling.value = (10 + (2 * Cha) + (2 * Lck));
-    speech.value = (5 * Cha);
+    barter.value = (4 * Cha) + SkilledMod.value + GoodNatureBonus.value;
+    gambling.value = (10 + (2 * Cha) + (2 * Lck)) + SkilledMod.value;
+    speech.value = (5 * Cha) + SkilledMod.value + GoodNatureBonus.value;
     skillValues();
 }
 
 export function calculateIntelligenceSkills(Per, End, Int){
-    medicine.value = (5 + Per + Int);
-    repair.value = (3 * Int);
-    science.value = (4 * Int);
-    survival.value = (2 * (End + Int));
+    medicine.value = (5 + Per + Int) + SkilledMod.value + GoodNatureBonus.value;
+    repair.value = (3 * Int) + SkilledMod.value + TechWizBonus.value + GoodNatureBonus.value;
+    science.value = (4 * Int) + SkilledMod.value + TechWizBonus.value + GoodNatureBonus.value;
+    survival.value = (2 * (End + Int)) + SkilledMod.value;
     skillValues();
 }
 
 export function calculateAgilitySkills(Str, Per, Agi){
-    bigGuns.value = (2 * Agi);
-    energyWeapons.value = (2 * Agi);
-    lockpick.value = (10 + (Per + Agi));
-    meleeWeapons.value = (20 + (2 *(Agi + Str)));
-    smallGuns.value = (5 + (4 * Agi));
-    sneak.value = (5 + (3 * Agi));
-    throwing.value = (4 * Agi);
-    traps.value = (10 + Per + Agi);
-    unarmed.value = (30 + (2 * (Agi + Str)));
+    bigGuns.value = (2 * Agi) + SkilledMod.value + GoodNatureNeg.value;
+    energyWeapons.value = (2 * Agi) + SkilledMod.value + TechWizBonus.value + GoodNatureNeg.value;
+    lockpick.value = (10 + (Per + Agi)) + SkilledMod.value + TechWizBonus.value;
+    meleeWeapons.value = (20 + (2 *(Agi + Str))) + SkilledMod.value + GoodNatureNeg.value;
+    smallGuns.value = (5 + (4 * Agi)) + SkilledMod.value + GoodNatureNeg.value;
+    sneak.value = (5 + (3 * Agi)) + SkilledMod.value;
+    throwing.value = (4 * Agi) + SkilledMod.value;
+    traps.value = (10 + Per + Agi) + SkilledMod.value;
+    unarmed.value = (30 + (2 * (Agi + Str))) + SkilledMod.value + GoodNatureNeg.value;
     skillValues();
 }
 
 export function calculateLuckSkills(Cha, Lck){
-    gambling.value = (10 + (2 * Cha) + (2 * Lck));
+    gambling.value = (10 + (2 * Cha) + (2 * Lck)) + SkilledMod.value;
     skillValues();
 }
 
 //Handlers and their functions
 export function skillValues() {
-
     __barterValue.textContent = skillValueTagCheck(barter);
     __bigGunsValue.textContent = skillValueTagCheck(bigGuns);
     __energyWeaponsValue.textContent = skillValueTagCheck(energyWeapons);

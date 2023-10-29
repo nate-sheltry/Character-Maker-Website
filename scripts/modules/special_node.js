@@ -16,17 +16,17 @@ export const LEVEL_UP = {POINTS:0}
 
 //Combat Traits
 export const traitDict = {
-bruiser: new Trait('Bruiser', TYPE.SPECIAL, SPECIAL, ['S'], 2, TYPE.STATISTIC, Stat.secStats, ['AP'], -2),
+bruiser: new Trait('Bruiser', TYPE.SPECIAL, SPECIAL, ['S'], 2, TYPE.STATISTIC, Stat.bruiserNeg, ['NULL'], -2),
 fastShot: new Trait('Fast Shot', TYPE.DESCRIPTION),
-finesse: new Trait('Finesse', TYPE.STATISTIC, Stat.secStats, ['CC'], 10),
+finesse: new Trait('Finesse', TYPE.STATISTIC, Stat.finesseBonus, ['NULL'], 10),
 // glowingOne: new Trait('Glowing One', TYPE.STATISTIC, Stat.secStats, ['radResistance'], 50);
 // hamFisted: new Trait('Ham Fisted', TYPE.SKILL, Sk.skills.unarmed, ['tagged'], true, TYPE.SKILL, Sk.skills, ['smallGuns', 'medicine', 'repair', 'science', 'lockpick'], -20);
-heavyHanded: new Trait('Heavy Handed', TYPE.STATISTIC, Stat.secStats, ['MD'], 4),
+heavyHanded: new Trait('Heavy Handed', TYPE.STATISTIC, Stat.heavyHandedBonus, ['NULL'], 4),
 jinxed: new Trait('Jinxed', TYPE.DESCRIPTION),
-kamikaze: new Trait('Kamikaze', TYPE.STATISTIC, Stat.secStats, ['AC'], -20,  TYPE.STATISTIC, Stat.secStats, ['SQ'], 5),
+kamikaze: new Trait('Kamikaze', TYPE.STATISTIC, Stat.kamikazeNeg, ['NULL'], -20,  TYPE.STATISTIC, Stat.kamikazeBonus, ['NULL'], 5),
 oneHander: new Trait('One Hander', TYPE.DESCRIPTION),
 //rabid: new Trait('Rabid', TYPE.DESCRIPTION), //Only Animals
-builtToDestroy: new Trait('Built To Destroy', TYPE.STATISTIC, Stat.secStats, ['AP'], 2,  TYPE.DESCRIPTION),
+builtToDestroy: new Trait('Built To Destroy', TYPE.STATISTIC, Stat.builtToDestroyBonus, ['NULL'], 2,  TYPE.DESCRIPTION),
 hotBlooded: new Trait('Hot Blooded', TYPE.DESCRIPTION),
 triggerDiscipline: new Trait('Trigger Discipline', TYPE.DESCRIPTION),
 
@@ -34,16 +34,15 @@ triggerDiscipline: new Trait('Trigger Discipline', TYPE.DESCRIPTION),
 chemReliant: new Trait('Chem Reliant', TYPE.DESCRIPTION),
 chemResistant: new Trait('Chem Resistant', TYPE.DESCRIPTION),
 //domesticated: new Trait('Domesticated', TYPE.SPECIAL, SPECIAL, ['S'], 1, TYPE.STATISTIC, Stat.secStats, ['MD'], -2), //Only Animal
-fastMetabolism: new Trait('Fast Metabolism', TYPE.STATISTIC, Stat.secStats, ['HR'], 2, TYPE.STATISTIC, Stat.secStats, ['radResistance', 'poisResistance'], -100),
+fastMetabolism: new Trait('Fast Metabolism', TYPE.STATISTIC, Stat.fastMetBonus, ['NULL'], 2, TYPE.STATISTIC, Stat.fastMetaNeg, ['NULL'], -100),
 //fearTheReaper: new Trait('Fear The Reaper', TYPE.DESCRIPTION), //Only Ghoul
 //No Animal/Robot
-goodNatured: new Trait('Good Natured', TYPE.SKILL, Sk.skills, 
-['meicine','speech','repair', 'science', 'barter'], 15, TYPE.SKILL, Sk.skills, ['smallGuns', 'bigGuns', 'energyWeapons', 'unarmed', 'meleeWeapons'], -10),
+goodNatured: new Trait('Good Natured', TYPE.SKILL, Sk.GoodNatureBonus, ['NULL'], 15, TYPE.SKILL, Sk.GoodNatureNeg, ['NULL'], -10),
 nightPerson: new Trait('Night Person', TYPE.DESCRIPTION),
 sexAppeal: new Trait('Sex Appeal', TYPE.DESCRIPTION),
-skilled: new Trait('Skilled', TYPE.SKILL, Sk.skills, Object.keys(Sk.skills), 10, TYPE.DESCRIPTION),
-smallFrame: new Trait('Small Frame', TYPE.SPECIAL, SPECIAL, ['A'], 1, TYPE.STATISTIC, Stat.secStats, ['CW'], 25 + (15 * SPECIAL.S)),
-techWizard: new Trait('Tech Wizard', TYPE.SPECIAL, SPECIAL, ['P'], -1, TYPE.SKILL, Sk.skills, ['science', 'repair', 'energyWeapons', 'lockpick'], 15)
+skilled: new Trait('Skilled', TYPE.SKILL, Sk.SkilledMod, ['NULL'], 10, TYPE.DESCRIPTION),
+smallFrame: new Trait('Small Frame', TYPE.SPECIAL, SPECIAL, ['A'], 1, TYPE.STATISTIC, Stat.smallFrameNeg, ['NULL'], -10),
+techWizard: new Trait('Tech Wizard', TYPE.SPECIAL, SPECIAL, ['P'], -1, TYPE.SKILL, Sk.TechWizBonus, ['NULL'], 15)
 }
 
 console.log(traitDict.bruiser);

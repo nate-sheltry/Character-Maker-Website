@@ -1,6 +1,18 @@
 import * as Sp from './special_node.js'
 import * as Traits from './traits_node.js'
 
+export const smallFrameNeg = {value:0};;
+export const bruiserNeg = {value:0};
+export const kamikazeBonus = {value:0};
+export const kamikazeNeg = {value:0};
+export const builtToDestroyBonus = {value:0};
+export const heavyHandedBonus = {value:0};
+
+export const fastMetaNeg = {value:0};
+export const fastMetBonus = {value:0};
+
+export const finesseBonus = {value:0};
+
 export const secStats = {HP:0, AC:0, AP:0, CW:0, MD:0, SQ:0, HR:0, CC:0, radResistance:0, poisResistance:0, elecResistance: 0}
 
 //HTML/CSS Objects
@@ -25,39 +37,30 @@ function hpCalc(){
 }
 //AC
 function acCalc(){
-	let x = Sp.SPECIAL.A;
+	let x = Sp.SPECIAL.A + kamikazeNeg.value; if(x < 0) x = 0;
 	secStats.AC = parseInt(x);
-	Sp.traitDict.kamikaze.repeatEffect1();
-	if(secStats.AC < 0){secStats.AC = 0}
 }
 //AP
 function apCalc(){
-	let x = [Math.floor(5 + (Sp.SPECIAL.A / 2))];
-	if(x > 10){x = 10;}
+	let x = (Math.floor(5 + (Sp.SPECIAL.A / 2))) + bruiserNeg.value + builtToDestroyBonus.value;
+	console.log('Bruiser negative' + bruiserNeg.value)
 	secStats.AP =  parseInt(x);
-	Sp.traitDict.bruiser.repeatEffect2();
-	Sp.traitDict.builtToDestroy.repeatEffect1();
 }
 //CW
 function cwCalc(){
-	let x = (25 + (25 * Sp.SPECIAL.S));
-	if(Sp.traitDict.smallFrame.getTagStatus()){
-		x = 25 + (15 * Sp.SPECIAL.S);
-	}
+	let x = (25 + ((25 + smallFrameNeg.value) * Sp.SPECIAL.S));
 	secStats.CW = parseInt(x);
 }
 //MD
 function meleeDamage(){
-	let x = (Sp.SPECIAL.S - 5);
+	let x = (Sp.SPECIAL.S - 5) + heavyHandedBonus.value;
 	if (x <= 0){x = 1;}
 	secStats.MD = parseInt(x);
-	Sp.traitDict.heavyHanded.repeatEffect1();
 }
 //SQ
 function sqCalc(){
-	let x = (2 * Sp.SPECIAL.P);
+	let x = (2 * Sp.SPECIAL.P) + kamikazeBonus.value;
 	secStats.SQ = parseInt(x);
-	Sp.traitDict.kamikaze.repeatEffect2();
 }
 //Healing Rate
 function healingRate(){
@@ -66,23 +69,21 @@ function healingRate(){
 	else if ((Math.floor(Sp.SPECIAL.E / 3)) >= 1)
 		x = (Math.floor(Sp.SPECIAL.E / 3));
 	else {x = 1;}
-	secStats.HR = parseInt(x); Sp.traitDict.fastMetabolism.repeatEffect1();
+	x += fastMetBonus.value;
+	secStats.HR = parseInt(x);
 }
 //Crit-Chance
 function ccCalc(){
-	let x = Sp.SPECIAL.L;
+	let x = Sp.SPECIAL.L + finesseBonus.value;
 	secStats.CC = parseInt(x);
-	Sp.traitDict.finesse.repeatEffect1();
 }
 //Resistances
 function resistanceCalc(){
-	let x = (2*Sp.SPECIAL.E); secStats.radResistance = parseInt(x);
-	let y = (5*Sp.SPECIAL.E); secStats.poisResistance = parseInt(y);
+	let x = (2*Sp.SPECIAL.E + fastMetaNeg.value); if(x < 0) x = 0;
+	secStats.radResistance = parseInt(x); 
+	let y = (5*Sp.SPECIAL.E + fastMetaNeg.value); if(y < 0) y = 0;
+	secStats.poisResistance = parseInt(y);
 	let z = 30; secStats.elecResistance = parseInt(z);
-	Sp.traitDict.fastMetabolism.repeatEffect2();
-
-	if(secStats.radResistance < 0){secStats.radResistance = 0}
-	if(secStats.poisResistance < 0){secStats.poisResistance = 0}
 }
 
 
@@ -126,6 +127,7 @@ export function calcAllSecondaryStats(){
 	healingRate();
 	ccCalc();
 	resistanceCalc();
+	setSecondaryStatistics();
 //	switch(charRace){
 //		case "human":
 //			elecResistance = 30;

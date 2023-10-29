@@ -43,26 +43,6 @@ export class Trait{
         }
         
     }
-    repeatEffect(type, stat, keys, effect){
-        if(this.selected != true){
-            return
-        }
-        keys.forEach(key => {
-            if(!this[stat].hasOwnProperty(key)){
-                return;
-            }
-            //This isn't a repeat effect
-            if(key == 'tagged')
-                return;
-            this[stat][key] += effect;
-        })
-    }
-    repeatEffect1(){
-        this.repeatEffect('type1', 'stat1', this.key1, this.effect1)
-    }
-    repeatEffect2(){
-        this.repeatEffect('type2', 'stat2', this.key2, this.effect2)
-    }
     determineSpecialStat(key){
         let value;
         switch(key){
@@ -89,17 +69,13 @@ export class Trait{
         console.log(keys);
         console.log(effect)
         keys.forEach(key => {
-            if(!this[stat].hasOwnProperty(key))
+            if(!this[stat].hasOwnProperty(key) && keys != 'NULL')
                 return;
-            
             switch(this[type]){
                 case TYPE.STATISTIC:
-                    if(key == 'CW') this[stat][key] = effect;
-                    else{
-                        this[stat][key] += effect;
-                        if(this[stat][key] < 0){this[stat][key] = 0}
-                    }
-                    Stat.setSecondaryStatistics();
+                    this[stat].value = effect;
+                    console.log(this[stat])
+                    Stat.calcAllSecondaryStats();
                     return;
                 case TYPE.DESCRIPTION:
                     return;
@@ -117,10 +93,8 @@ export class Trait{
                         this[stat][key] = effect;
                         return;
                     }
-                    else{
-                        this[stat][key] += effect;
-                        Sk.skillValues();
-                    }
+                    else this[stat].value = effect;
+                    Sk.calculateAllSkills(Sp.SPECIAL.S,Sp.SPECIAL.P,Sp.SPECIAL.E,Sp.SPECIAL.C,Sp.SPECIAL.I,Sp.SPECIAL.A,Sp.SPECIAL.L);
                     break;
 
             }
@@ -134,6 +108,8 @@ export class Trait{
         })
         switch(this[type]){
             case TYPE.STATISTIC:
+                this[stat].value -= effect;
+                Stat.calcAllSecondaryStats();
                 return;
             case TYPE.DESCRIPTION:
                 return;
@@ -152,6 +128,8 @@ export class Trait{
                         this[stat][key] = !effect;
                         return;
                     }
+                    this[stat].value -= effect;
+                    Sk.calculateAllSkills(Sp.SPECIAL.S,Sp.SPECIAL.P,Sp.SPECIAL.E,Sp.SPECIAL.C,Sp.SPECIAL.I,Sp.SPECIAL.A,Sp.SPECIAL.L);
                 });
                 break;
 
