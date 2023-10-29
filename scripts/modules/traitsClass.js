@@ -64,10 +64,6 @@ export class Trait{
         return value;
     }
     runEffect(type, stat, keys, effect){
-        console.log(this[type]);
-        console.log(this[stat]);
-        console.log(keys);
-        console.log(effect)
         keys.forEach(key => {
             if(!this[stat].hasOwnProperty(key) && keys != 'NULL')
                 return;
