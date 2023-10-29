@@ -30,6 +30,8 @@ const __descriptionText = document.querySelector("#description_box").lastElement
 
 const __specialImage = document.querySelector("#img_wrapper").firstChild;
 
+
+const __traitWrapper = document.querySelector("#trait_wrapper");
 const __traitPageButtonSub = document.querySelector("#traits-button-subtract");
 const __traitPageButtonAdd = document.querySelector("#traits-button-add");
 
@@ -121,6 +123,19 @@ function getRidOfFormula(){
 }
 
 
+function traitHoverEffect(e){
+    getRidOfFormula();
+    let target = e.target;
+    if(e.target.classList.contains('trait-label') || e.target.classList.contains('trait-button')){
+        target = e.target.parentElement;
+    }
+    let data_reference;
+    data_reference = target.dataset.name;
+    __descriptionText.textContent = traitInfo[`${data_reference}Info`];
+    __descriptionTittle.textContent = target.children[0].textContent
+}
+
+
 function findTarget(e){
     console.log(e.target.parentElement);
     console.log(e.target.parentElement.parentElement.querySelector(".special-value"));
@@ -137,5 +152,9 @@ __skillWrapper.addEventListener("pointerdown", Sk.handleSkillTag)
 //Traits
 __traitPageButtonAdd.addEventListener("pointerdown", (e) => {Traits.traitPageHandler(e, __traitPageButtonAdd, null)})
 __traitPageButtonSub.addEventListener("pointerdown", (e) => {Traits.traitPageHandler(e, null ,__traitPageButtonSub)})
+
+__traitWrapper.addEventListener("pointerover", traitHoverEffect);
+
+
 
 Traits.traitPageUpdate();

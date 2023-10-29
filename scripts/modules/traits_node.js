@@ -52,6 +52,7 @@ function changeTraitDisplay(object){
         (object.button.style.backgroundImage = `url("images/tag_btn_down.png")`, object.button.firstChild.style.visibility = "visible");
 }
 function displayTrait(element, object, traits, i){
+    object.setAttribute('data-name', traits[i]);
     element.label.textContent = traitDict[traits[i]] ? (object.style.visibility = 'visible',
     element.trait = traitDict[traits[i]], traitDict[traits[i]].name) : object.style.visibility = 'hidden';
 }
