@@ -7,18 +7,32 @@ const firearmsAmmoJSON = '../db_files/firearms_ammunition.json'
 const armorJSON = '../db_files/armor.json'
 const removeQuote = /[\"]/g;
 const colspanCharacter = /=$/
-const HOST = 'http://127.0.0.1:5500';
+const HOST = 'https://nate-sheltry.github.io/Fallout-Character-Maker-Website';
+
+const clipBoardStack = [];
+const keyIsDown = {Control: false};
 
 const navigatorAPI = !!navigator.clipboard;
 
-function copyAmmoData(e, name){
-    const ulElem = e.target.parentElement;
-    const liArray = ulElem.querySelectorAll('li span');
-            
-    const dataCopy = `\`\`\`AMMO: ${name}\n   Cost: ${liArray[0].textContent}\n\n   AC: ${liArray[1].textContent}\n   DR: ${liArray[3].textContent}\n   Dmg: ${liArray[4].textContent}\n   Vol: ${liArray[2].textContent}\n\`\`\``
+document.addEventListener('keydown', function(event) {
+    if(event.key == 'Control') keyIsDown[event.key] = true;
+});
 
+document.addEventListener('keyup', function(event) {
+    if(event.key == 'Control') keyIsDown[event.key] = false;
+});
+
+function moveDataToClipboard(dataCopy){
     if(navigatorAPI){
-        navigator.clipboard.writeText(dataCopy)
+        if(keyIsDown.Control) {
+            const clipboardData = clipBoardStack.join('\n');
+            navigator.clipboard.writeText(clipboardData + dataCopy)
+            clipBoardStack.push(dataCopy);
+        }
+        else {
+            navigator.clipboard.writeText(dataCopy)
+            clipBoardStack.length = 0;
+        }
     }
     else{
         let copyElem = document.createElement('textarea')
@@ -28,6 +42,15 @@ function copyAmmoData(e, name){
         document.execCommand("copy");
         copyElem.remove();
     }
+}
+
+function copyAmmoData(e, name){
+    const ulElem = e.target.parentElement;
+    const liArray = ulElem.querySelectorAll('li span');
+            
+    const dataCopy = `\`\`\`AMMO: ${name}\n   Cost: ${liArray[0].textContent}\n\n   AC: ${liArray[1].textContent}\n   DR: ${liArray[3].textContent}\n   Dmg: ${liArray[4].textContent}\n   Vol: ${liArray[2].textContent}\n\`\`\``
+    moveDataToClipboard(dataCopy);
+    
 }
 function copyArmorData(e, name){
     const filter = /(<\/?span>)?(<span class\="damage-info">)?/g
@@ -43,20 +66,9 @@ function copyArmorData(e, name){
     }
     const bonusElem = parElem.querySelector('p:last-of-type').innerHTML.replace(filter, '');
             
-    const dataCopy = `\`\`\`ARMOR: ${name}\n   ${liInfo.join('\n   ')}\n   ${bonusElem}\`\`\`
+    const dataCopy = `\`\`\`ARMOR: ${name}\n   ${liInfo.join('\n   ')}\n   ${bonusElem}\n\`\`\`
     `
-
-    if(navigatorAPI){
-        navigator.clipboard.writeText(dataCopy)
-    }
-    else{
-        let copyElem = document.createElement('textarea')
-        copyElem.value = dataCopy; copyElem.style.maxHeight = '0px';
-        document.body.append(copyElem)
-        copyElem.select();
-        document.execCommand("copy");
-        copyElem.remove();
-    }
+    moveDataToClipboard(dataCopy);
 }
 
 // function sortDict(data){
@@ -171,7 +183,7 @@ function makeAmmo(data){
 
         return `<div class="ammo" data-category="${categories}">
             <p class="title">${title}</p>
-            <img src="/no_image.png" srcset="/db_files/resources/ammunition/${currentAmmo.img}" alt="ammunition image" loading="lazy">
+            <img src="${HOST}/no_image.png" srcset="${HOST}/db_files/resources/ammunition/${currentAmmo.img}" alt="ammunition image" loading="lazy">
             <ul>
                 <li>Cost<span>${currentAmmo.value}</span></li>
                 <button class="copy-button">Copy Data</button>
@@ -202,7 +214,7 @@ function makeArmor(data){
 
         return `<div class="armor">
         <p class="title">${title}</p>
-        <img src="/no_image.png">
+        <img src="${HOST}/no_image.png">
         <button class="copy-button">Copy Data</button>
         <ul>
             <li>Value: <span>${currentArmor.value.toLocaleString()}</span></li>
