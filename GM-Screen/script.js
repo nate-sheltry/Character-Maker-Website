@@ -7,7 +7,7 @@ const firearmsAmmoJSON = '../db_files/firearms_ammunition.json'
 const armorJSON = '../db_files/armor.json'
 const removeQuote = /[\"]/g;
 const colspanCharacter = /=$/
-const HOST = 'https://nate-sheltry.github.io/Fallout-Character-Maker-Website';
+const HOST = '..';
 
 const clipBoardStack = [];
 const keyIsDown = {Control: false};
@@ -99,7 +99,7 @@ async function makeTable(file, data = null, headerRow = 2, headerColumn = 1){
         const columns = line.split('`');
         if(i < headerRow){
             html.push("  <tr>\n");
-            if(columns.length == 2 && columns[1][columns[1].length-2] == "="){
+            if(columns.length == 2 && columns[1][columns[1].length-1] == "="){
                 html.push(`    <th colspan="${columns[1].replace("=",  "")}">` + columns[0] + "</th>\n");
             }
             else {
