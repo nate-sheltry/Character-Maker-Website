@@ -1,0 +1,382 @@
+{
+  "combat-armor-mk-i": {
+    "value": 6500,
+    "ac": 20,
+    "dr": {
+      "normal": 40,
+      "fire": 30,
+      "plasma": 50,
+      "laser": 60,
+      "explosion": 40
+    },
+    "dt": { "normal": 5, "fire": 4, "plasma": 4, "laser": 8, "explosion": 6 },
+    "elecRes": 20,
+    "poisRes": 0,
+    "radRes": 20,
+    "weight": 20,
+    "otherBonuses": "-10% Sneak"
+  },
+  "combat-armor-mk-ii": {
+    "value": 8000,
+    "ac": 25,
+    "dr": {
+      "normal": 40,
+      "fire": 35,
+      "plasma": 50,
+      "laser": 65,
+      "explosion": 45
+    },
+    "dt": { "normal": 5, "fire": 5, "plasma": 5, "laser": 9, "explosion": 9 },
+    "elecRes": 25,
+    "poisRes": 0,
+    "radRes": 20,
+    "weight": 25,
+    "otherBonuses": "-10% Sneak"
+  },
+  "combat-armor-mk-iii": {
+    "value": 11000,
+    "ac": 30,
+    "dr": {
+      "normal": 60,
+      "fire": 50,
+      "plasma": 50,
+      "laser": 65,
+      "explosion": 50
+    },
+    "dt": { "normal": 5, "fire": 7, "plasma": 7, "laser": 10, "explosion": 10 },
+    "elecRes": 30,
+    "poisRes": 0,
+    "radRes": 20,
+    "weight": 30,
+    "otherBonuses": "-10% Sneak"
+  },
+  "combat-leather-jacket": {
+    "value": 950,
+    "ac": 20,
+    "dr": {
+      "normal": 30,
+      "fire": 25,
+      "plasma": 10,
+      "laser": 20,
+      "explosion": 20
+    },
+    "dt": { "normal": 2, "fire": 2, "plasma": 0, "laser": 0, "explosion": 0 },
+    "elecRes": 0,
+    "poisRes": 0,
+    "radRes": 0,
+    "weight": 7,
+    "otherBonuses": ""
+  },
+  "elite-riot-gear": {
+    "value": 14000,
+    "ac": 35,
+    "dr": {
+      "normal": 50,
+      "fire": 50,
+      "plasma": 50,
+      "laser": 65,
+      "explosion": 50
+    },
+    "dt": {
+      "normal": 10,
+      "fire": 7,
+      "plasma": 7,
+      "laser": 10,
+      "explosion": 10
+    },
+    "elecRes": 30,
+    "poisRes": 20,
+    "radRes": 30,
+    "weight": 30,
+    "otherBonuses": "+2 Perception (to 10), (no penalties from low light)"
+  },
+  "environmental-armor": {
+    "value": 9000,
+    "ac": 18,
+    "dr": {
+      "normal": 40,
+      "fire": 40,
+      "plasma": 55,
+      "laser": 55,
+      "explosion": 40
+    },
+    "dt": { "normal": 5, "fire": 4, "plasma": 5, "laser": 5, "explosion": 6 },
+    "elecRes": 0,
+    "poisRes": 50,
+    "radRes": 60,
+    "weight": 30,
+    "otherBonuses": "-50 Sneak"
+  },
+  "environmental-armor-mk-ii": {
+    "value": 10000,
+    "ac": 20,
+    "dr": {
+      "normal": 40,
+      "fire": 40,
+      "plasma": 60,
+      "laser": 40,
+      "explosion": 45
+    },
+    "dt": { "normal": 6, "fire": 5, "plasma": 6, "laser": 6, "explosion": 9 },
+    "elecRes": 25,
+    "poisRes": 75,
+    "radRes": 90,
+    "weight": 35,
+    "otherBonuses": "-50% to Sneak"
+  },
+  "kevlar": {
+    "value": 1000,
+    "ac": 10,
+    "dr": {
+      "normal": 30,
+      "fire": 25,
+      "plasma": 10,
+      "laser": 20,
+      "explosion": 20
+    },
+    "dt": { "normal": 4, "fire": 1, "plasma": 0, "laser": 1, "explosion": 4 },
+    "elecRes": 0,
+    "poisRes": 0,
+    "radRes": 0,
+    "weight": 9,
+    "otherBonuses": ""
+  },
+  "leather-armor": {
+    "value": 700,
+    "ac": 15,
+    "dr": {
+      "normal": 25,
+      "fire": 20,
+      "plasma": 20,
+      "laser": 10,
+      "explosion": 20
+    },
+    "dt": { "normal": 2, "fire": 0, "plasma": 0, "laser": 0, "explosion": 0 },
+    "elecRes": 0,
+    "poisRes": 0,
+    "radRes": 0,
+    "weight": 8,
+    "otherBonuses": ""
+  },
+  "leather-armor-mk-ii": {
+    "value": 1000,
+    "ac": 20,
+    "dr": {
+      "normal": 25,
+      "fire": 25,
+      "plasma": 30,
+      "laser": 20,
+      "explosion": 25
+    },
+    "dt": { "normal": 3, "fire": 1, "plasma": 1, "laser": 1, "explosion": 1 },
+    "elecRes": 10,
+    "poisRes": 0,
+    "radRes": 0,
+    "weight": 10,
+    "otherBonuses": ""
+  },
+  "leather-jacket": {
+    "value": 200,
+    "ac": 8,
+    "dr": {
+      "normal": 20,
+      "fire": 20,
+      "plasma": 10,
+      "laser": 10,
+      "explosion": 10
+    },
+    "dt": { "normal": 0, "fire": 0, "plasma": 0, "laser": 0, "explosion": 0 },
+    "elecRes": 0,
+    "poisRes": 0,
+    "radRes": 0,
+    "weight": 5,
+    "otherBonuses": ""
+  },
+  "metal-armor": {
+    "value": 1100,
+    "ac": 10,
+    "dr": {
+      "normal": 30,
+      "fire": 10,
+      "plasma": 20,
+      "laser": 75,
+      "explosion": 25
+    },
+    "dt": { "normal": 4, "fire": 4, "plasma": 4, "laser": 6, "explosion": 4 },
+    "elecRes": -30,
+    "poisRes": 0,
+    "radRes": 0,
+    "weight": 35,
+    "otherBonuses": "-15% Sneak"
+  },
+  "metal-armor-mk-ii": {
+    "value": 1900,
+    "ac": 15,
+    "dr": {
+      "normal": 30,
+      "fire": 15,
+      "plasma": 25,
+      "laser": 80,
+      "explosion": 30
+    },
+    "dt": { "normal": 4, "fire": 4, "plasma": 4, "laser": 7, "explosion": 4 },
+    "elecRes": -25,
+    "poisRes": 0,
+    "radRes": 0,
+    "weight": 35,
+    "otherBonuses": "-15% Sneak"
+  },
+  "motorcycle-armored-bodysuit": {
+    "value": 850,
+    "ac": 15,
+    "dr": {
+      "normal": 20,
+      "fire": 15,
+      "plasma": 10,
+      "laser": 20,
+      "explosion": 20
+    },
+    "dt": { "normal": 1, "fire": 1, "plasma": 1, "laser": 0, "explosion": 1 },
+    "elecRes": 10,
+    "poisRes": 0,
+    "radRes": 0,
+    "weight": 8,
+    "otherBonuses": ""
+  },
+  "radiation-suit": {
+    "value": 5000,
+    "ac": 15,
+    "dr": {
+      "normal": 30,
+      "fire": 60,
+      "plasma": 20,
+      "laser": 30,
+      "explosion": 40
+    },
+    "dt": { "normal": 4, "fire": 10, "plasma": 0, "laser": 0, "explosion": 4 },
+    "elecRes": 30,
+    "poisRes": 0,
+    "radRes": 100,
+    "weight": 25,
+    "otherBonuses": "-30% Sneak"
+  },
+  "riot-gear": {
+    "value": 10000,
+    "ac": 30,
+    "dr": {
+      "normal": 40,
+      "fire": 35,
+      "plasma": 50,
+      "laser": 50,
+      "explosion": 45
+    },
+    "dt": { "normal": 8, "fire": 7, "plasma": 6, "laser": 9, "explosion": 9 },
+    "elecRes": 20,
+    "poisRes": 10,
+    "radRes": 20,
+    "weight": 25,
+    "otherBonuses": "+1 Perception (to 10), (no penalties from low light)"
+  },
+  "robe": {
+    "value": 50,
+    "ac": 5,
+    "dr": {
+      "normal": 10,
+      "fire": 10,
+      "plasma": 10,
+      "laser": 10,
+      "explosion": 10
+    },
+    "dt": { "normal": 0, "fire": 0, "plasma": 0, "laser": 0, "explosion": 0 },
+    "elecRes": 0,
+    "poisRes": 0,
+    "radRes": 0,
+    "weight": 10,
+    "otherBonuses": ""
+  },
+  "sporting-armor": {
+    "value": 500,
+    "ac": 10,
+    "dr": {
+      "normal": 25,
+      "fire": 20,
+      "plasma": 20,
+      "laser": 10,
+      "explosion": 20
+    },
+    "dt": { "normal": 1, "fire": 0, "plasma": 0, "laser": 0, "explosion": 1 },
+    "elecRes": 0,
+    "poisRes": 0,
+    "radRes": 0,
+    "weight": 7,
+    "otherBonuses": ""
+  },
+  "tactical-control-gear": {
+    "value": 1100,
+    "ac": 15,
+    "dr": {
+      "normal": 40,
+      "fire": 30,
+      "plasma": 20,
+      "laser": 20,
+      "explosion": 30
+    },
+    "dt": { "normal": 4, "fire": 2, "plasma": 1, "laser": 2, "explosion": 4 },
+    "elecRes": 10,
+    "poisRes": 0,
+    "radRes": 10,
+    "weight": 15,
+    "otherBonuses": ""
+  },
+  "tactical-control-gear-mk-ii": {
+    "value": 1500,
+    "ac": 17,
+    "dr": {
+      "normal": 40,
+      "fire": 30,
+      "plasma": 20,
+      "laser": 30,
+      "explosion": 30
+    },
+    "dt": { "normal": 3, "fire": 5, "plasma": 2, "laser": 4, "explosion": 6 },
+    "elecRes": 10,
+    "poisRes": 0,
+    "radRes": 10,
+    "weight": 20,
+    "otherBonuses": ""
+  },
+  "tesla-armor": {
+    "value": 4500,
+    "ac": 15,
+    "dr": {
+      "normal": 20,
+      "fire": 10,
+      "plasma": 80,
+      "laser": 90,
+      "explosion": 10
+    },
+    "dt": { "normal": 4, "fire": 4, "plasma": 10, "laser": 19, "explosion": 4 },
+    "elecRes": 50,
+    "poisRes": 0,
+    "radRes": 0,
+    "weight": 35,
+    "otherBonuses": "-15% Sneak"
+  },
+  "wet-suit": {
+    "value": 700,
+    "ac": 5,
+    "dr": {
+      "normal": 30,
+      "fire": 15,
+      "plasma": 10,
+      "laser": 10,
+      "explosion": 20
+    },
+    "dt": { "normal": 1, "fire": 1, "plasma": 0, "laser": 1, "explosion": 1 },
+    "elecRes": 0,
+    "poisRes": 0,
+    "radRes": 10,
+    "weight": 5,
+    "otherBonuses": ""
+  }
+}

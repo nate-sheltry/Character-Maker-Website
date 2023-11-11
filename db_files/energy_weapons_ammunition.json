@@ -1,0 +1,10 @@
+{
+    "small-energy-cell":{
+        "Value": "2000",
+        "AC": "N/A","DR": "N/A","Vol": "20"
+        },
+    "micro-fusion-cell":{
+        "Value": "2000",
+        "AC": "N/A","DR": "N/A","Vol": "20"
+        }
+}

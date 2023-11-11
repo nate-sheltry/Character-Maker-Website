@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="char_man_style.css">
+    <script defer src="./script.js"></script>
+</head>
+<body>
+    <main>
+        <div id="character_wrapper">
+            <div id="name_header">
+                <div id="name_tittle">NAME:</div>
+                <div id="name_box">Jahl Washington</div>
+            </div>
+            <div id="health_block">
+                <svg viewBox="0 0 100 100" style="display: block; width: min(60%, 16em);margin:auto;">
+                    <path d="M 50,50 m 0,-44 a 44,44 0 1 1 0,88 a 44,44 0 1 1 0,-88"
+                    stroke="rgb(231, 40, 40)" stroke-width="6.5" fill-opacity="0"></path>
+                    <path d="M 50,50 m 0,-44 a 44,44 0 1 1 0,88 a 44,44 0 1 1 0,-88"
+                    stroke="rgb(62, 255, 86)" stroke-width="11" fill-opacity="0"
+                    style="stroke-dasharray: 276.4, 276.4; stroke-dashoffset: 0"></path>
+                </svg>
+                <div id="hp_block">
+                    <span><b>Hit Points</b><br></span>
+                    <input id="min" type="number" value="10"> /<input id="max" type="number" value="10">
+                </div>
+                <div id="hp_modifiers">
+                    <div class="modify-subtract">
+                        <input type="number" value=""><button>&minus;</button>
+                    </div>
+                    <div class="modify-add">
+                        <input type="number" value=""><button>&plus;</button>
+                    </div>
+                    <div class="modify-temp">
+                        <input type="number" value=""><button>&#9960;</button>
+                    </div>
+                </div>
+            </div>
+            <div id="special_block">
+                <div class="special-hoverable special-attribute" data-reference="Strength">
+                    <div class="special-label">S.</div>
+                    <input type="text" class="special-input" value="5">
+                    <input class="special-modifier" value="0">
+                </div>
+                <div class="special-hoverable special-attribute" data-reference="Perception">
+                    <div class="special-label">P.</div>
+                    <input type="text" class="special-input" value="5">
+                    <input class="special-modifier" value="0">
+                </div>
+                <div class="special-hoverable special-attribute" data-reference="Endurance">
+                    <div class="special-label">E.</div>
+                    <input type="text" class="special-input" value="5">
+                    <input class="special-modifier" value="0">
+                </div>
+                <div class="special-hoverable special-attribute" data-reference="Charisma">
+                    <div class="special-label">C.</div>
+                    <input type="text" class="special-input" value="5">
+                    <input class="special-modifier" value="0">
+                </div>
+                <div class="special-hoverable special-attribute" data-reference="Intelligence">
+                    <div class="special-label">I.</div>
+                    <input type="text" class="special-input" value="5">
+                    <input class="special-modifier" value="0">
+                </div>
+                <div class="special-hoverable special-attribute" data-reference="Agility">
+                    <div class="special-label">A.</div>
+                    <input type="text" class="special-input" value="5">
+                    <input class="special-modifier" value="0">
+                </div>
+                <div class="special-hoverable special-attribute" data-reference="Luck">
+                    <div class="special-label">L.</div>
+                    <input type="text" class="special-input" value="5">
+                    <input class="special-modifier" value="0">
+                </div>
+            </div>
+        </div>
+        <button id="skill-button">Skills</button>
+        <div id="skill_box" hidden>
+            <div id="skill_wrapper">
+                <div class="skill-hoverable" data-reference="Barter">
+                    <div class="skill-label">Barter</div>
+                    <input class="skill-input" value="0">%
+                    <input class="skill-modifier" value="0">
+                </div>
+                <div class="skill-hoverable" data-reference="Big Guns">
+                    <div class="skill-label">Big Guns</div>
+                    <input class="skill-input" value="0">%
+                    <input class="skill-modifier" value="0">
+                </div>
+                <div class="skill-hoverable" data-reference="Energy Weapons">
+                    <div class="skill-label">Energy Weapons</div>
+                    <input class="skill-input" value="0">%
+                    <input class="skill-modifier" value="0">
+                </div>
+                <div class="skill-hoverable" data-reference="Gambling">
+                    <div class="skill-label">Gambling</div>
+                    <input class="skill-input" value="0">%
+                    <input class="skill-modifier" value="0">
+                </div>
+                <div class="skill-hoverable" data-reference="Lockpick">
+                    <div class="skill-label">Lockpick</div>
+                    <input class="skill-input" value="0">%
+                    <input class="skill-modifier" value="0">
+                </div>
+                <div class="skill-hoverable" data-reference="Medicine">
+                    <div class="skill-label">Medicine</div>
+                    <input class="skill-input" value="0">%
+                    <input class="skill-modifier" value="0">
+                </div>
+                <div class="skill-hoverable" data-reference="Melee Weapons">
+                    <div class="skill-label">Melee Weapons</div>
+                    <input class="skill-input" value="0">%
+                    <input class="skill-modifier" value="0">
+                </div>
+                <div class="skill-hoverable" data-reference="Repair">
+                    <div class="skill-label">Repair</div>
+                    <input class="skill-input" value="0">%
+                    <input class="skill-modifier" value="0">
+                </div>
+                <div class="skill-hoverable" data-reference="Science">
+                    <div class="skill-label">Science</div>
+                    <input class="skill-input" value="0">%
+                    <input class="skill-modifier" value="0">
+                </div>
+                <div class="skill-hoverable" data-reference="Small Guns">
+                    <div class="skill-label">Small Guns</div>
+                    <input class="skill-input" value="0">%
+                    <input class="skill-modifier" value="0">
+                </div>
+                <div class="skill-hoverable" data-reference="Sneak">
+                    <div class="skill-label">Sneak</div>
+                    <input class="skill-input" value="0">%
+                    <input class="skill-modifier" value="0">
+                </div>
+                <div class="skill-hoverable" data-reference="Speech">
+                    <div class="skill-label">Speech</div>
+                    <input class="skill-input" value="0">%
+                    <input class="skill-modifier" value="0">
+                </div>
+                <div class="skill-hoverable" data-reference="Survival">
+                    <div class="skill-label">Survival</div>
+                    <input class="skill-input" value="0">%
+                    <input class="skill-modifier" value="0">
+                </div>
+                <div class="skill-hoverable" data-reference="Throwing">
+                    <div class="skill-label">Throwing</div>
+                    <input class="skill-input" value="0">%
+                    <input class="skill-modifier" value="0">
+                </div>
+                <div class="skill-hoverable" data-reference="Traps">
+                    <div class="skill-label">Traps</div>
+                    <input class="skill-input" value="0">%
+                    <input class="skill-modifier" value="0">
+                </div>
+                <div class="skill-hoverable" data-reference="Unarmed">
+                    <div class="skill-label">Unarmed</div>
+                    <input class="skill-input" value="0">%
+                    <input class="skill-modifier" value="0">
+                </div>
+            </div>
+        </div>
+        <div id="hover-footer">
+            <div id="statistics">
+                <ul>
+                    <li>HP: <span>10</span></li>
+                    <li>AP: <span>5</span></li>
+                </ul>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

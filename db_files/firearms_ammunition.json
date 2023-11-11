@@ -1,0 +1,371 @@
+{
+  ".22-lr": {
+    "value": "150",
+    "ac": "0",
+    "dr": "0",
+    "vol": "50",
+    "dmg": "1d6",
+    "category": ["handguns"],
+    "img": "22lr_round.webp"
+  },
+  ".223-ap": {
+    "value": "400",
+    "ac": "-15",
+    "dr": "0 Ignores DT",
+    "vol": "20",
+    "dmg": "1d6",
+    "category": ["handguns", "rifles", "big guns"],
+    "img": "223fmj.webp"
+  },
+  ".223-fmj": {
+    "value": "400",
+    "ac": "0",
+    "dr": "-10",
+    "vol": "20",
+    "dmg": "1d10",
+    "category": ["handguns", "rifles", "big guns"],
+    "img": "223fmj.webp"
+  },
+  ".308": {
+    "value": "400",
+    "ac": "-15",
+    "dr": "-20",
+    "vol": "50",
+    "dmg": "1d10",
+    "category": ["rifles"],
+    "img": "308_round.webp"
+  },
+  ".357-magnum": {
+    "value": "150",
+    "ac": "-10",
+    "dr": "-10",
+    "vol": "50",
+    "dmg": "1d6",
+    "category": ["handguns"],
+    "img": "357_magnum_round.webp"
+  },
+  ".38-caliber": {
+    "value": "100",
+    "ac": "0",
+    "dr": "0",
+    "vol": "10",
+    "dmg": "1d6",
+    "category": ["handguns"],
+    "img": "38_round.webp"
+  },
+  ".44-magnum-ap": {
+    "value": "250",
+    "ac": "-10",
+    "dr": "0 Ignores DT",
+    "vol": "20",
+    "dmg": "1d6",
+    "category": ["handguns"],
+    "img": "44fmj.webp"
+  },
+  ".44-magnum-fmj": {
+    "value": "250",
+    "ac": "-10",
+    "dr": "-20",
+    "vol": "20",
+    "dmg": "1d6",
+    "category": ["handguns"],
+    "img": "44fmj.webp"
+  },
+  ".44-magnum-jhp": {
+    "value": "200",
+    "ac": "0",
+    "dr": "-10",
+    "vol": "20",
+    "dmg": "1d8",
+    "category": ["handguns"],
+    "img": "44jhp.webp"
+  },
+  ".45-caliber": {
+    "value": "150",
+    "ac": "0",
+    "dr": "-5",
+    "vol": "50",
+    "dmg": "1d6",
+    "category": ["handguns"],
+    "img": "45_caliber_round.webp"
+  },
+  ".50-(ur_-coated)": {
+    "value": "1600",
+    "ac": "-30",
+    "dr": "-50",
+    "vol": "100",
+    "dmg": "1d8",
+    "category": ["big guns"],
+    "img": "50du_caliber_round.webp"
+  },
+  ".50-bmg": {
+    "value": "1000",
+    "ac": "-10",
+    "dr": "-20",
+    "vol": "100",
+    "dmg": "1d6",
+    "category": ["big guns"],
+    "img": "50_caliber_round.webp"
+  },
+  ".50-caliber": {
+    "value": "800",
+    "ac": "-10",
+    "dr": "-10",
+    "vol": "100",
+    "dmg": "1d8",
+    "category": ["big guns", "rifles"],
+    "img": "50_caliber_round.webp"
+  },
+  "10mm-ap": {
+    "value": "350",
+    "ac": "-10",
+    "dr": "0 Ignores DT",
+    "vol": "20",
+    "dmg": "1d4",
+    "category": ["handguns", "rifles"],
+    "img": "10mmap.webp"
+  },
+  "10mm-jhp": {
+    "value": "300",
+    "ac": "0",
+    "dr": "-10",
+    "vol": "20",
+    "dmg": "1d6",
+    "category": ["handguns", "rifles"],
+    "img": "10mmjhp.webp"
+  },
+  "12-gauge-(buckshot)": {
+    "value": "150",
+    "ac": "0",
+    "dr": "0",
+    "vol": "20",
+    "dmg": "1d10",
+    "category": ["rifles"],
+    "img": "12ga.webp"
+  },
+  "12-gauge-(rubber)": {
+    "value": "100",
+    "ac": "0",
+    "dr": "0",
+    "vol": "20",
+    "dmg": "1d4",
+    "category": ["rifles"],
+    "img": "12ga_rubber.webp"
+  },
+  "12-gauge-(slugs)": {
+    "value": "150",
+    "ac": "0",
+    "dr": "0",
+    "vol": "20",
+    "dmg": "1d8",
+    "category": ["rifles"],
+    "img": "12ga_slug.webp"
+  },
+  "12-gauge-emp": {
+    "value": "500",
+    "ac": "0",
+    "dr": "0",
+    "vol": "20",
+    "dmg": "2d20 (non-bio only)",
+    "category": ["rifles", "energy weapons"],
+    "img": "12ga_emp.webp"
+  },
+  "14mm-ap": {
+    "value": "1200",
+    "ac": "-20",
+    "dr": "0 Ignores DT",
+    "vol": "20",
+    "dmg": "1d8",
+    "category": ["rifles"],
+    "img": "14mmap.webp"
+  },
+  "14mm-jhp": {
+    "value": "1000",
+    "ac": "0",
+    "dr": "-20",
+    "vol": "20",
+    "dmg": "1d10",
+    "category": ["rifles"],
+    "img": "14mmap.webp"
+  },
+  "2mm-ec": {
+    "value": "2000",
+    "ac": "-20",
+    "dr": "-20",
+    "vol": "20",
+    "dmg": "1d10",
+    "category": ["handguns", "rifles"],
+    "img": "2MMEC.webp"
+  },
+  "4.7mm-caseless": {
+    "value": "1000",
+    "ac": "-10",
+    "dr": "-10",
+    "vol": "20",
+    "dmg": "1d10",
+    "category": ["rifles", "big guns"],
+    "img": "4_7MM.webp"
+  },
+  "5.56mm": {
+    "value": "600",
+    "ac": "0",
+    "dr": "-20",
+    "vol": "50",
+    "dmg": "1d8",
+    "category": ["rifles"],
+    "img": "308_round.webp"
+  },
+  "5mm": {
+    "value": "500",
+    "ac": "0",
+    "dr": "0",
+    "vol": "50",
+    "dmg": "1d8",
+    "category": ["big guns", "rifles"],
+    "img": "5mmap.webp"
+  },
+  "7.62mm": {
+    "value": "300",
+    "ac": "0",
+    "dr": "0",
+    "vol": "50",
+    "dmg": "1d10",
+    "category": ["rifles", "big guns"],
+    "img": "762mm.webp"
+  },
+  "7.65mm": {
+    "value": "300",
+    "ac": "0",
+    "dr": "0",
+    "vol": "50",
+    "dmg": "1d8",
+    "category": ["rifles"],
+    "img": "762mm.webp"
+  },
+  "9mm-ap": {
+    "value": "250",
+    "ac": "-10",
+    "dr": "0 Ignores DT",
+    "vol": "20",
+    "dmg": "1d4",
+    "category": ["handguns"],
+    "img": "9mm.webp"
+  },
+  "9mm-ball": {
+    "value": "300",
+    "ac": "0",
+    "dr": "-10",
+    "vol": "20",
+    "dmg": "1d6",
+    "category": ["handguns"],
+    "img": "9mm_ball.webp"
+  },
+  "9mm-jhp": {
+    "value": "200",
+    "ac": "0",
+    "dr": "-10",
+    "vol": "20",
+    "dmg": "1d6",
+    "category": ["handguns"],
+    "img": "9mm.webp"
+  },
+  "arrow": {
+    "value": "5",
+    "ac": "0",
+    "dr": "0",
+    "vol": "5",
+    "dmg": "1d4",
+    "category": ["other"],
+    "img": "no_image.png"
+  },
+  "bbs": {
+    "value": "100",
+    "ac": "0",
+    "dr": "0",
+    "vol": "100",
+    "dmg": "1d4",
+    "category": ["other", "rifles"],
+    "img": "BBS.webp"
+  },
+  "bolt": {
+    "value": "5",
+    "ac": "0",
+    "dr": "0",
+    "vol": "5",
+    "dmg": "1d6",
+    "category": ["other"],
+    "img": "no_image.png"
+  },
+  "dart": {
+    "value": "5",
+    "ac": "0",
+    "dr": "0",
+    "vol": "5",
+    "dmg": "1d3",
+    "category": ["other"],
+    "img": "no_image.png"
+  },
+  "hn-needler": {
+    "value": "1500",
+    "ac": "0",
+    "dr": "0",
+    "vol": "10",
+    "dmg": "3d10",
+    "category": ["handguns"],
+    "img": "no_image.png"
+  },
+  "hn-needler-ap": {
+    "value": "2000",
+    "ac": "0",
+    "dr": "0 Ignores DT",
+    "vol": "10",
+    "dmg": "2d8",
+    "category": ["handguns"],
+    "img": "no_image.png"
+  },
+  "hn-needler-biotoxin": {
+    "value": "4000",
+    "ac": "0",
+    "dr": "0",
+    "vol": "10",
+    "dmg": "1d10 for 10 rounds",
+    "category": ["handguns"],
+    "img": "no_image.png"
+  },
+  "hn-needler-poison": {
+    "value": "2300",
+    "ac": "0",
+    "dr": "0",
+    "vol": "10",
+    "dmg": "Poison Type G",
+    "category": ["handguns"],
+    "img": "no_image.png"
+  },
+  "micro-fusion-cell": {
+    "value": "2000",
+    "ac": "N/A",
+    "dr": "N/A",
+    "vol": "20",
+    "dmg": "N/A",
+    "category": ["energy weapons", "rifles"],
+    "img": "microfusion-cell.webp"
+  },
+  "small-energy-cell": {
+    "value": "2000",
+    "ac": "N/A",
+    "dr": "N/A",
+    "vol": "20",
+    "dmg": "N/A",
+    "category": ["energy weapons", "handguns"],
+    "img": "small-energy-cell.webp"
+  },
+  "speargun-bolt": {
+    "value": "5",
+    "ac": "-10",
+    "dr": "0",
+    "vol": "1",
+    "dmg": "3d4",
+    "category": ["other"],
+    "img": "no_image.png"
+  }
+}

@@ -1,0 +1,43 @@
+{
+    "eyes":[
+        "Ignores Armor<br>Blind Check (+4)",
+        "Ignores Armor<br>Blind Check (+3)",
+        "Ignores Armor<br>Blind Check (+2)",
+        "Ignores Armor<br>Blindness<br>Lose Turn",
+        "Ignores Armor<br>Blindness<br>Knockout",
+        "Instant Death"
+    ],
+    "head":[
+        "None",
+        "Ignores Armor<br>Knockout check",
+        "Ignores Armor<br>Knockout check (-3)",
+        "Ignores Armor<br>Knockdown<br>Knockout check (-3)",
+        "Ignores Armor<br>Knockout<br>Blind check",
+        "Instant Death"
+    ],
+    "torso":[
+        "None",
+        "Ignores Armor",
+        "Ignores Armor<br>Knockdown",
+        "Ignores Armor<br>Knockdown",
+        "Ignores Armor<br>Knockout",
+        "Instant Death"
+    ],
+    "arms":[
+        "None",
+        "Lose Turn",
+        "Cripple Check (-3)",
+        "Ignores Armor<br>Crippled",
+        "Ignores Armor<br>Crippled",
+        "Ignores Armor<br>Crippled"
+
+    ],
+    "legs":[
+        "None",
+        "Cripple Check",
+        "Cripple Check",
+        "Ignores Armor<br>Crippled",
+        "Ignores Armor<br>Crippled<br>Knockout Check",
+        "Ignores Armor<br>Crippled<br>Knockout"
+    ]
+}
