@@ -99,7 +99,7 @@ async function makeTable(file, data = null, headerRow = 2, headerColumn = 1){
         const columns = line.split('`');
         if(i < headerRow){
             html.push("  <tr>\n");
-            if(columns.length == 2 && columns[1][columns[1].length-1] == "="){
+            if(columns.length == 2 && columns[1][1] == "="){
                 html.push(`    <th colspan="${columns[1].replace("=",  "")}">` + columns[0] + "</th>\n");
             }
             else {
