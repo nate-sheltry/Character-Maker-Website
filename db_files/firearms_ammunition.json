@@ -249,7 +249,7 @@
     "vol": "20",
     "dmg": "1d4",
     "category": ["handguns"],
-    "img": "9mm.webp"
+    "img": "9MM.webp"
   },
   "9mm-ball": {
     "value": "300",
@@ -267,7 +267,7 @@
     "vol": "20",
     "dmg": "1d6",
     "category": ["handguns"],
-    "img": "9mm.webp"
+    "img": "9MM.webp"
   },
   "arrow": {
     "value": "5",
