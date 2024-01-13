@@ -1,0 +1,44 @@
+{
+    "unarmed":[
+        "Miss",
+        "Lose Turn",
+        "Lose Turn",
+        "1-5 Dmg.s<br>Knockdown",
+        "Random Crippled Limb"
+    ],
+    "melee":[
+        "Miss",
+        "Lose Turn",
+        "Drop Weapon",
+        "Hit Random Target",
+        "Hit Self"
+    ],
+    "firearms":[
+        "Miss",
+        "Lose Ammo -<br>Drop Magazine",
+        "Drop Weapon",
+        "Hit Random Target(s)",
+        "Weapon Destroyed"
+    ],
+    "energy":[
+        "Lose Turn",
+        "Lose Ammo -<br>Drop Magazine<br><b>OR</b><br>Lose Turn",
+        "Drop Weapon<br>Lose Turn",
+        "Hit Random Target(s)",
+        "Weapon Explodes<br>Lose Turn"
+    ],
+    "explosives":[
+        "Dud <b>OR</b> Lose Turn",
+        "Drop Explosive Item<br><b>OR</b><br>Dud",
+        "1-5 Dmg.<br>Drop Item<br><b>OR</b><br>Weapon Destroyed",
+        "Hit Random Target(s)",
+        "Item Explodes <b>OR</b><br>Weapon Explodes<br>(Lose Turn<br>Knockdown)"
+    ],
+    "flamers":[
+        "Miss",
+        "Lose Turn",
+        "Hit Random Target(s)",
+        "Weapon Destroyed",
+        "Weapon Explodes<br>Lose Turn<br>Set On Fire"
+    ]
+}
