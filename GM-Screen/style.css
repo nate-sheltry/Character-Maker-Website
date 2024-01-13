@@ -45,7 +45,7 @@ table tbody{
     display:flex;
     font-size:1.2rem;
     max-width:50vw;
-    height:max-content;
+    height:auto;
     padding:.5em 1em;
     color:black;
     background: rgba(255,255,255,.9);
@@ -130,7 +130,7 @@ table tbody tr th {outline: 1px solid black;}
         position:fixed;
         right:0px;
         top:0px;
-        width:20px;
+        width:30px;
         height:100%;
         background-color:#333;
         border-left:3px solid black;
@@ -349,3 +349,28 @@ table tbody tr th {outline: 1px solid black;}
 .hide {
     display:none;
 }
+.loading {
+    position:fixed;
+    background: lightgrey;
+    z-index:100;
+    width:100dvw;
+    height:100dvh;
+}
+.loading-spinner {
+    position:absolute;
+    border: 8px solid #f3f3f3; /* Light gray border */
+    border-top: 8px solid var(--special-color); /* Blue border, adjust color as needed */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite; /* Rotate animation */
+    margin:0;
+    padding:0;
+    top:calc(50dvh - 33px);
+    left:calc(50dvw - 33px);
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }

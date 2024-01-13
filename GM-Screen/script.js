@@ -1,10 +1,12 @@
 const targetShotCSV = "./csv-files/target-shot.csv"
 const critTableCSV = "./csv-files/crit-table.csv"
+const critFailTableCSV = "./csv-files/crit-fail-table.csv"
 const cripTableCSV = './csv-files/cripple-effects-height.csv'
 const radiationTableCSV = './csv-files/radiation-levels.csv'
 const critEffectsJSON = "./crit-effects.json"
-const firearmsAmmoJSON = '../db_files/firearms_ammunition.json'
-const armorJSON = '../db_files/armor.json'
+const critFailEffectsJSON = "./crit-fail-effects.json"
+const firearmsAmmoJSON = 'https://falloutdbapi.onrender.com/Resources/Ammo/library'
+const armorJSON = 'https://falloutdbapi.onrender.com/Resources/Armor/library'
 const removeQuote = /[\"]/g;
 const colspanCharacter = /=$/
 const HOST = '..';
@@ -84,7 +86,9 @@ function copyArmorData(e, name){
 // }
 
 async function getData(file){
-    return await fetch(file).then(res => (res.json()))
+    const data = await fetch(file).then(res => res.json())
+    console.log(data)
+    return data;
     // .then(data => {console.log(data); return sortDict(data)})
 }
 
@@ -199,6 +203,7 @@ function makeAmmo(data){
 }
 
 function makeArmor(data){
+    console.log(data)
     const validValues = new Set(['mk', 'ii', 'i', 'iii']);
     let object = Object.keys(data).map(armor =>{
         const currentArmor = data[armor];
@@ -264,8 +269,26 @@ function searchAmmo(ammoIndex){
 
 }
 
+async function serverCheck(){
+    const server = {status: null, isUp: null}
+    const isUpNull = setTimeout(()=>{
+        server.isUp = false
+        console.error('Error: Server not found.')
+        window.alert('Was unable to connect to server please try refreshing the page, if problem persists... your\'re out of luck.')
+    }, 5000)
+    do {
+        server.status = await fetch(firearmsAmmoJSON).then(res => res.status)
+        setTimeout(()=>(null), 250)
+        console.log(`Server Status: ${server.status}`)
+    }while(server.status != 200 && server.isUp != false)
+    clearTimeout(isUpNull)
+    return;
+}
+
 async function main(){
-    const data = await getData(critEffectsJSON)
+    await serverCheck();
+    const critData = await getData(critEffectsJSON)
+    const critFailData = await getData(critFailEffectsJSON)
     let hiddenState = Boolean();
     if(window.innerWidth > 720) hiddenState = true;
     else hiddenState = false;
@@ -277,6 +300,7 @@ async function main(){
     const ammoIndex = makeIndex('ammo');
 
     const armorData = await getData(armorJSON);
+    console.log(armorData)
     let armorElems = makeArmor(armorData);
     let armorContainer = document.getElementById('armor_container').children[1]
     armorContainer.innerHTML = armorElems;
@@ -286,7 +310,8 @@ async function main(){
 
     let targetShotTable = await prepareTable(targetShotCSV, 'targetshot-table', null, hiddenState)
     let crippleTable = await prepareTable(cripTableCSV, 'cripple-table', null, hiddenState)
-    let critTable = await prepareTable(critTableCSV, 'crit-table', data, hiddenState)
+    let critTable = await prepareTable(critTableCSV, 'crit-table', critData, hiddenState)
+    let critFailTable = await prepareTable(critFailTableCSV, 'crit-table', critFailData, hiddenState)
     let radiationTable = await prepareTable(radiationTableCSV, 'radiation-table', null, hiddenState)
 
     let right_bar = document.querySelector('#right_bar div');
@@ -294,6 +319,7 @@ async function main(){
     right_bar.append(crippleTable)
     right_bar.append(critTable)
     right_bar.append(radiationTable)
+    right_bar.append(critFailTable)
 
 
     let dataColumns = document.querySelectorAll('td')
@@ -313,7 +339,9 @@ async function main(){
 
             let targetCoord = e.target.getBoundingClientRect()
 
-            tooltip.style.top = targetCoord.bottom + window.scrollY -5 + 'px';
+            let topCoord = targetCoord.bottom + window.scrollY -5;
+            if(topCoord + 80 >= window.innerHeight) topCoord -= 100;
+            tooltip.style.top = topCoord + "px"
             if(targetCoord.left > parElem.clientWidth/2) tooltip.style.left = targetCoord.right + window.scrollX - tooltip.clientWidth + 10 + 'px';
             else tooltip.style.left = targetCoord.left + window.scrollX + 'px';
             
@@ -338,8 +366,8 @@ async function main(){
             const parElem = e.target.parentElement;
             let elements = Array.from(parElem.children[1].children);
             let timer = 0;
-            if(elements[0].hidden) {parElem.style.width = 'min(40vw, 29em)';}
-            else if(!elements[0].hidden) { parElem.style.width = '20px'; timer = 700}
+            if(elements[0].hidden) {parElem.style.width = 'max(24vw, 32.5em)';}
+            else if(!elements[0].hidden) { parElem.style.width = '30px'; timer = 700}
             setTimeout(()=>{
             elements.forEach(index => {index.hidden = !index.hidden;})}, timer);
                 
@@ -380,6 +408,7 @@ async function main(){
             }
         })
     });
+    document.querySelector('.loading').remove();
 }
 
 async function test(loops = [10], func, ...args){
